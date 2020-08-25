@@ -6,8 +6,24 @@ class EventsController < ApplicationController
     end
 
     def new
+      @event = Event.new
+      @venue = Venue.find(params[:venue_id])
     end
 
     def create
+      @event = Event.new(event_params)
+      @event.user = current_user
+      @venue = Venue.find(params[:venue_id])
+      @event.venue = @venue
+      @event.save
+      redirect_to venues_path
+    end
+
+    private
+
+    def event_params
+      params.require(:event).permit(:name, :date)
     end
 end
+
+
