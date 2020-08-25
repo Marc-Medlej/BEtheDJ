@@ -18,7 +18,9 @@ class VenuesController < ApplicationController
     #   end
     # end
 
-      @venues = Venue.where("location @@ :query", query: "%#{params[:query]}%")
+      # @venues = Venue.where("location @@ :query", query: "%#{params[:query]}%")
+      @venues = Venue.near("#{params[:query]}")
+
 
       @geo_venues = @venues.geocoded
 
@@ -29,6 +31,7 @@ class VenuesController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { venue: geo_venue })
       }
       end
+
     end
 
     def show
