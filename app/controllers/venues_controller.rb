@@ -1,30 +1,35 @@
 class VenuesController < ApplicationController
   def index
-    @venues = Venue.geocoded
+    # if params[:query].present?
+    #   @venues = Venue.where("location @@ :query OR venue_name @@ :query", query: "%#{params[:query]}%")
+    # else
+    #   @venues = Venue.all
+    # end
 
-    @markers = @venues.map do |venue|
-      {
-        lat: venue.latitude,
-        lng: venue.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { venue: venue })
-      }
-    end
-  end
 
-    #   @venues = Venue.where("location @@ :query", query: "%#{params[:query]}%")
+    #   @venues = Venue.geocoded
 
-    #   @geo_venues = @venues.geocoded
-
-    #   @markers = @geo_venues.map do |geo_venue|
-    #   {
-    #     lat: geo_venue.latitude,
-    #     lng: geo_venue.longitude,
-    #     infoWindow: render_to_string(partial: "info_window", locals: { venue: geo_venue })
-    #     image_url: helpers.asset_url('data:image/png;base64,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')
-
-    #   }
+    #   @markers = @venues.map do |venue|
+    #     {
+    #       lat: venue.latitude,
+    #       lng: venue.longitude,
+    #       infoWindow: render_to_string(partial: "info_window", locals: { venue: venue })
+    #     }
     #   end
     # end
+
+      @venues = Venue.where("location @@ :query", query: "%#{params[:query]}%")
+
+      @geo_venues = @venues.geocoded
+
+      @markers = @geo_venues.map do |geo_venue|
+      {
+        lat: geo_venue.latitude,
+        lng: geo_venue.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { venue: geo_venue })
+      }
+      end
+    end
 
     def show
       @venue = Venue.find(params[:id])
