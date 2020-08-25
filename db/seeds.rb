@@ -9,16 +9,60 @@
 Venue.destroy_all
 User.destroy_all
 Track.destroy_all
+Event.destroy_all
+EventTrack.destroy_all
+
 
 venues =  Venue.create(
-    name: "Venues + Events Live",
-    location: "Harbour Exchange"
+    name: "Royal Albert Hall",
+    location: "London,South Kensington"
   )
 
 
 venues = Venue.create(
     name: "LightHouse",
     location: "London"
+  )
+
+
+venues = Venue.create(
+    name: "The O2",
+    location: "London, Greenwich Peninsula"
+  )
+
+venues = Venue.create(
+    name: "Roundhouse",
+    location: "Camden Town, London"
+  )
+
+venues = Venue.create(
+    name: "Eventim Apollo",
+    location: "London, Hammersmith"
+  )
+
+venues = Venue.create(
+    name: "Southbank Centre",
+    location: "London, Belvedere Road"
+  )
+
+venues = Venue.create(
+    name: "Zenith Paris",
+    location: "Paris, Avenue Jean Jaurès"
+  )
+
+venues = Venue.create(
+    name: "Resorts World Arena",
+    location: "Birmingham, Resorts World Arena"
+  )
+
+venues = Venue.create(
+    name: "AccorHotels Arena",
+    location: "Boulevard de Bercy, Paris"
+  )
+
+venues = Venue.create(
+    name: "The Dome of Paris",
+    location: "Boulevard Victor, Paris"
   )
 
 
@@ -29,7 +73,6 @@ users = User.create(
   dj_name: "Will",
   password: "123456"
   )
-
 
 
 users = User.create(
