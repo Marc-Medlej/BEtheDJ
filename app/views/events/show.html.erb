@@ -1,6 +1,8 @@
 <h1><%= @event.name %></h1>
 <% @tracks.each do |track| %>
-    <li><%=track.name%> (<%=track.artist%>) [<%=@track_request_count[track.id]%>] <%= link_to "request", event_track_requests_path(@event, track), method: :create%></li>
+    <li><%=track.id%>- <%=track.name%> (<%=track.artist%>) [<%=@track_request_count[track.id]%>] <%= link_to "request", event_track_requests_path(@event, track), method: :create%></li>
 <% end %>
+
+<%= @track_request_count.sort_by {|_k, v| -v}.to_h %>
 
 <%= link_to 'Back', root_path %>

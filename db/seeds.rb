@@ -48,9 +48,9 @@ tracks = Track.create(
   )
 
 tracks = Track.create(
-  name: "Pirate Baird O'Connell",
-  artist: "Billie Eilish",
-  genre: "streambait"
+  name: "Viva La Vida",
+  artist: "Cold Play",
+  genre: "Rock"
   )
 
 events = Event.create(
@@ -75,7 +75,13 @@ event_tracks = EventTrack.create(
 
 event_tracks = EventTrack.create(
   already_played: true,
-  track_id: Track.first.id,
+  track_id: Track.first.id + 1,
   event_id: Event.first.id
+  )
+
+event_tracks = EventTrack.create(
+  already_played: true,
+  track_id: Track.first.id + 1,
+  event_id: Event.first.id + 1
   )
 
