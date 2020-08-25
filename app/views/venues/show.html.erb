@@ -1,5 +1,6 @@
+<h1><%= @venue.name %></h1>
+<ul>
 <% @events.each do |event| %>
-<div>
-  <h4> <%= event.name %>   </h4>
-</div>
+  <li><%= link_to event.name, event_path(event)%></li>
 <% end %>
+<ul>
