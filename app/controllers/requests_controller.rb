@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
     def index
-        @event = Event.find(params[:id])
-        @requested_tracks = Track.joins(:requests).where(requests: { event_id: @event.id }).where(requests: { user_id: current_user.id })    
+        @event = Event.find(params[:event_id])
+        @requested_tracks = Track.joins(:requests).where(requests: { event_id: @event.id }).where(requests: { user_id: current_user.id }).select('tracks.*, requests.*')
     end
 
     def create
@@ -16,9 +16,16 @@ class RequestsController < ApplicationController
         if @request.save
             redirect_to event_path(@event)
         else
-            flash[:notice] = "You have already requested the song"
-            render 'events/show' 
+            flash[:alert] = "You have already requested the song"
+            redirect_to event_path(@event)
         end
 
+    end
+
+    def destroy
+        @request = Request.find(params[:id])
+        @request.destroy
+  
+        redirect_to event_requests_path(@request.event)
     end
 end
