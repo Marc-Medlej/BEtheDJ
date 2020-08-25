@@ -1,0 +1,103 @@
+.container {
+  height: 100%;
+}
+
+.add-new {
+  background-color: $purple;
+
+}
+
+.bg {
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.link-whiten a {
+  text-decordation: none;
+  color: white;
+}
+
+.img-resize {
+
+  width: 50%;
+}
+
+.card-product {
+  height: 200px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  &.create-button {
+    padding: 8px;
+  }
+  .card-date {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  }
+   .card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  }
+}
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 2;
+  opacity: .7;
+  margin-bottom: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 8px;
+  position: relative;
+  height: 100%;
+  flex-grow: 1;
+  & a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.create-button {
+  background-color: $neon-blue;
+  padding: 8px;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  &:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+}
+
