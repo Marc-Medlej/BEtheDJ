@@ -27,5 +27,7 @@ class VenuesController < ApplicationController
     # end
 
     def show
+      @venue = Venue.find(params[:id])
+      @events = @venue.events
     end
 end
