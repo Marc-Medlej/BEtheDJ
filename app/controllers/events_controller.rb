@@ -16,7 +16,7 @@ class EventsController < ApplicationController
       @venue = Venue.find(params[:venue_id])
       @event.venue = @venue
       @event.save
-      redirect_to venues_path
+      redirect_to venue_path(@venue)
     end
 
     private
