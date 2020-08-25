@@ -52,7 +52,7 @@ venues = Venue.create(
 
 venues = Venue.create(
     name: "Resorts World Arena",
-    location: "Birmingham, Resorts World Arena"
+    location: "Birmingham"
   )
 
 venues = Venue.create(
