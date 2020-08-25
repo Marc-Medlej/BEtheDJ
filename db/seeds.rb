@@ -55,27 +55,27 @@ tracks = Track.create(
 
 events = Event.create(
   date: "12.09.2020",
-  venue_id: Event.first,
-  user_id: Event.first,
+  venue_id: Venue.first.id,
+  user_id: User.first.id,
   name: "Untold"
   )
 
 events = Event.create(
   date: "08.09.2020",
-  venue_id: Venue.first,
-  user_id: User.first,
+  venue_id: Venue.first.id,
+  user_id: User.first.id,
   name: "NeverSea"
   )
 
 event_tracks = EventTrack.create(
   already_played: false,
-  track_id: 1,
-  event_id: 2
+  track_id: Track.first.id,
+  event_id: Event.first.id
   )
 
 event_tracks = EventTrack.create(
   already_played: true,
-  track_id: 3,
-  event_id: 4
+  track_id: Track.first.id,
+  event_id: Event.first.id
   )
 

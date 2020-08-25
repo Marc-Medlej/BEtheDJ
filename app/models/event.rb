@@ -4,6 +4,5 @@ class Event < ApplicationRecord
   has_many :event_tracks, dependent: :destroy
   has_many :requests, dependent: :destroy
   has_many :tracks, through: :event_tracks
-  has_many :tracks, through: :requests
-
+  has_many :requested_tracks, through: :requests, source: :tracks
 end

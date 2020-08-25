@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   resources :venues, only: [:index, :show]
 
   resources :events, only: [:show, :new, :create] do
-    resources :requests, only: [ :index, :create]
+    resources :requests, only: [ :index ]
+    resources :tracks, only: [:show] do
+      resources :requests, only: [ :create]
+    end
   end
   
   resources :event_tracks, only: [:update]
