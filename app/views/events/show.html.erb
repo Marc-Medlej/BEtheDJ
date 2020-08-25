@@ -1,6 +1,17 @@
 <h1><%= @event.name %></h1>
 <% @tracks.each do |track| %>
-    <li><%=track.id%>- <%=track.name%> (<%=track.artist%>) [<%=@track_request_count[track.id]%>] <%= link_to "request", event_track_requests_path(@event, track), method: :create%></li>
+<div class="container song-card">
+    <div class="d-flex m-2">  
+        <%=image_tag("music notes.jpg", height: 100, width: 100, crop: :scale  )%>
+        <div class="align-self-center">
+            <h4 class="m-0"><%= track.name %> </h4>
+            <p class="m-0"><%= track.artist %></p>
+        </div>
+        <div class="ml-auto align-self-center">
+            <p><%= button_to "request", event_track_requests_path(@event, track), method: :create%></p>
+        </div>
+    </div>
+</div>
 <% end %>
 
 <%= @track_request_count.sort_by {|_k, v| -v}.to_h %>
