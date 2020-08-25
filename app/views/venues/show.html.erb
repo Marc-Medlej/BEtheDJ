@@ -4,3 +4,7 @@
   <li><%= link_to event.name, event_path(event)%></li>
 <% end %>
 <ul>
+
+<button>
+  <%= link_to "Add a new event for #{@venue.name}", new_venue_event_path(@venue) %>
+</button>
