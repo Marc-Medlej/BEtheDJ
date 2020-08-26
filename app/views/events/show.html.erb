@@ -1,7 +1,7 @@
 <% if @event.user == current_user %>
   <p>DJ DASHBOARD</p>
-  <h1><%= @event.name %></h1>
 
+   <p>Top requested songs</p>
   <%# raise %>
     <% @tracks.each do |track| %>
     <% unless @event.event_tracks.find_by(track: track).already_played %>
@@ -20,8 +20,21 @@
      <% end %>
   <% end %>
 <% else %>
-  <p>Event Music Library</p>
-  <h1><%= @event.name %></h1>
+
+  <div class="container justify-content-center mt-3">
+    <%= form_tag event_path, class: "search-tab",  method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "search-field justify-content-center",
+      placeholder: "Search by artist"
+    %>
+    <%= button_tag :submit, class: "create-button p-1" do %>
+      <i class="fas fa-search"></i>
+    <% end %>
+    <% end %>
+  </div>
+
+   <p class="text-center pt-4">Press <span class="request-button"><i class="fas fa-arrow-alt-circle-up"></i></span> to request your song</p>
     <% @tracks.each do |track| %>
       <% if @event.event_tracks.find_by(track: track).already_played %>
         <div class="container song-card make-grey">
@@ -30,24 +43,38 @@
             <div class="align-self-center">
               <h4 class="m-0"><%= track.name %> </h4>
               <p class="m-0"><%= track.artist %></p>
+
             </div>
             <% else %>
              <div class="container song-card">
               <div class="d-flex m-2">
               <%=image_tag(track.photo, height: 100, width: 100, crop: :scale  )%>
-                <div class="align-self-center">
+                <div class="align-self-center m-2">
                   <h4 class="m-0"><%= track.name %> </h4>
                   <p class="m-0"><%= track.artist %></p>
+
                 </div>
-              <div class="ml-auto align-self-center">
-                <p><%= button_to "request", event_track_requests_path(@event, track), method: :create%></p>
+              <div class="ml-auto align-self-center request-button">
+                <%= link_to event_track_requests_path(@event, track), method: :create do %>
+                <i class="fas fa-arrow-alt-circle-up"></i>
+              <% end %>
+              </div>
+              <div class="card-counter">
+                <% @new_id = Track.find_by(name: track.name).id %>
+                  <% new_num = @track_request_count.select do |k,v| %>
+                  <%# raise %>
+                    <% if k.to_s == @new_id.to_s %>
+                      <% v %>
+                    <% end %>
+                  <% end %>
+                <p><%= new_num.values.join('') %></p>
               </div>
             <% end %>
         </div>
       </div>
     <% end %>
 <% end %>
-
+<%# raise %>
 <%= @track_request_count.sort_by {|_k, v| -v}.to_h %>
 
 <%= link_to 'Back', root_path %>

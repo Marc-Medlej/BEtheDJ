@@ -1,0 +1,42 @@
+.song-card {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  h4 {
+      font-size: smaller;
+    }
+  a {
+    color: white;
+  }
+  .card-counter {
+  position: absolute;
+  top: 2vh;
+  right: 9vw;
+  }
+   .card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  }
+}
+
+.make-grey {
+  background: gray;
+  color: white;
+}
+
+.request-button {
+  background-color: $neon-blue;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  &:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+}
