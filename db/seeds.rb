@@ -657,25 +657,31 @@ events = Event.create(
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+tracks = Track.all
+
+tracks.each do |track|
+  event_tracks = EventTrack.create(
+  track_id: track.id,
+  event_id: Event.first.id)
+end
+
+# event_tracks = EventTrack.create(
+#   track_id: Track.first.id,
+#   event_id: Event.first.id
+#   )
 
 
-event_tracks = EventTrack.create(
-  track_id: Track.first.id,
-  event_id: Event.first.id
-  )
+# event_tracks = EventTrack.create(
+#   track_id: Track.first.id + 1,
+#   event_id: Event.first.id
+#   )
 
+# event_tracks = EventTrack.create(
+#   track_id: Track.first.id + 1,
+#   event_id: Event.first.id + 1
+#   )
 
-event_tracks = EventTrack.create(
-  track_id: Track.first.id + 1,
-  event_id: Event.first.id
-  )
-
-event_tracks = EventTrack.create(
-  track_id: Track.first.id + 1,
-  event_id: Event.first.id + 1
-  )
-
-event_tracks = EventTrack.create(
-  track_id: Track.first.id + 1,
-  event_id: Event.first.id + 1
-  )
+# event_tracks = EventTrack.create(
+#   track_id: Track.first.id + 1,
+#   event_id: Event.first.id + 1
+#   )
