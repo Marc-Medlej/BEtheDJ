@@ -227,254 +227,454 @@ users = User.create(
   )
 
 
+users = User.create(
+  first_name: "Armin",
+  last_name: "VanBuren",
+  email: "arminvan@gmail.com",
+  dj_name: "ArmVan",
+  password: "bethedj"
+  )
+
+
+file = URI.open('https://pyxis.nymag.com/v1/imgs/d79/42f/97ed074830069ca717f456c6ae797b3864-17-billie-eilish.rsquare.w1200.jpg')
 tracks = Track.create(
   name: "Pirate Baird O'Connell",
   artist: "Billie Eilish",
   genre: "streambait"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://www.ansa.it/webimages/img_457x/2016/11/13/49943c79ffb2e3a8d52a35094c7ebd93.jpg')
 tracks = Track.create(
   name: "Viva La Vida",
   artist: "Cold Play",
   genre: "Rock"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+
+file = URI.open('https://upload.wikimedia.org/wikipedia/en/5/5a/Fabulousmiracles-lpcover-19.jpg')
 tracks = Track.create(
   name: "Going to a Go-Go",
   artist: "The Miracles",
   genre: "Classic Soul"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
 
+file = URI.open('https://d2tml28x3t0b85.cloudfront.net/tracks/artworks/000/511/033/original/558ea7.jpeg?1493012328')
 tracks = Track.create(
   name: "What Do You Mean?",
   artist: "Justin Bieber",
   genre: "Pop/Soul"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
 
+file = URI.open('https://opradre.com/wp-content/uploads/2019/06/Justin-Bieber-Love-Yourself.jpg')
 tracks = Track.create(
   name: " Love Yourself ",
   artist: "Justin Bieber",
   genre: "Pop"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://img.christiantimes.com/full/26202/295-295/justin-bieber-sorry.jpg')
 tracks = Track.create(
   name: "Sorry",
   artist: "Justin Bieber",
   genre: "Pop"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+
+file = URI.open('https://static.mixupload.com/n5/media/track/2546/940/cover_orig.jpg?133')
 tracks = Track.create(
   name: "In And Out Of Love",
   artist: "Armin van Buuren feat. Sharon den Adel",
   genre: "Trance"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://i.ytimg.com/vi/02dKmYn31a4/hqdefault.jpg')
 tracks = Track.create(
   name: " Sunny Days",
   artist: "Armin van Buuren feat. Josh Cumbee",
   genre: "Dance/Electronic"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://i2.sndcdn.com/artworks-000038425195-u2rh2u-t500x500.jpg')
 tracks = Track.create(
   name: " Waiting For The Nigh",
   artist: "Armin van Buuren feat. Fiora",
   genre: "Dance/Electronic"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://i1.sndcdn.com/artworks-000123112582-7rovxb-t500x500.jpg')
 tracks = Track.create(
   name: "Feels So Good",
   artist: "Armin van Buuren ft. Nadia Ali",
   genre: "Dance/Electronic"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://edmhunters-563e.kxcdn.com/mediafiles/dj/images/gigi-dagostino_12.jpg')
 tracks = Track.create(
   name: "Hollywood",
   artist: "LA Vision & Gigi D'Agostino",
   genre: "Dance/Electronic"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://i1.sndcdn.com/avatars-yzPdLOJu5zoxoj7X-xh6psw-t300x300.jpg')
 tracks = Track.create(
   name: "In Your Eyes",
   artist: "Robin Schulz feat. Alida",
   genre: "Dance/Electronic"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://d24jnm9llkb1ub.cloudfront.net/icpn/190295186746/190295186746-cover-zoom.jpg')
 tracks = Track.create(
   name: "Alane",
   artist: "Robin Schulz & Wes",
   genre: "Dance/Electronic"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://i3.sndcdn.com/avatars-fMfbRDaZFF8MxeOk-ZwWqKQ-t500x500.jpg')
 tracks = Track.create(
   name: "Weekend",
   artist: "LIZOT",
   genre: "Dance/Electronic"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
 
+file = URI.open('https://www.nme.com/wp-content/uploads/2020/04/Black-Eyed.jpg')
 tracks = Track.create(
   name: "Mamacita",
   artist: "J. Rey Soul & Ozuna",
   genre: "Pop"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://edmhousenetwork.com/wp-content/uploads/2019/08/zafrojack.jpg')
 tracks = Track.create(
   name: "Speechless",
   artist: "Chico Rose & Afrojack",
   genre: "Dance/Electronic"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://itsmyster-e.com/wp-content/uploads/2015/03/kygo-ultra-set.jpg')
 tracks = Track.create(
   name: "Lose You",
   artist: "Tiësto",
   genre: "Dance/Electronic"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://dancingastronaut.com/wp-content/uploads/2018/03/tiesto-ultra-music-festival-2016-pic-rukes.jpg')
 tracks = Track.create(
   name: "Coffee",
   artist: "Tiësto & Vintage Culture",
   genre: "Dance/Electronic"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://m.media-amazon.com/images/I/71z6bkE-nfL._SS500_.jpg')
 tracks = Track.create(
   name: "Animals",
   artist: "Martin Garrix",
   genre: "Dance/Electronic"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://dancingastronaut.com/wp-content/uploads/2018/03/tiesto-ultra-music-festival-2016-pic-rukes.jpg')
 tracks = Track.create(
   name: "Red Lights",
-  artist: "Tiësto ",
+  artist: "Tiësto",
   genre: "Dance/Electronic"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://m.media-amazon.com/images/I/71z6bkE-nfL._SS500_.jpg')
 tracks = Track.create(
   name: "High On Life",
   artist: "Martin Garrix feat. Bonn",
   genre: "Dance/Electronic"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://i1.sndcdn.com/artworks-000660217471-khqhx5-t300x300.jpg')
 tracks = Track.create(
   name: "Happy Now",
   artist: "Kygo",
   genre: "Dance"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
+
+
+file = URI.open('https://i.ytimg.com/vi/jlfU5NW2RVU/maxresdefault.jpg')
 tracks = Track.create(
   name: "How Would You Feel",
   artist: "Dirty Nano feat. Ed Sheeran",
   genre: "Dance/Electronic"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
 
+file = URI.open('https://lastfm.freetls.fastly.net/i/u/500x500/375fbd899a1f4104a2e1a6d19acc31b9.jpg')
 tracks = Track.create(
   name: "Vaya Con Dios",
   artist: "Pauvre Diable",
   genre: "Dance"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://i.ytimg.com/vi/N6CCKqVU7oM/maxresdefault.jpg')
 tracks = Track.create(
   name: "White bishop",
   artist: "Emeric Imre",
   genre: "Dance"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://images.genius.com/748bb66860de41158107377ed6f9979e.750x400x1.jpg')
 tracks = Track.create(
   name: "Shallow",
   artist: "Lady Gaga, Bradley Cooper",
   genre: "Country music"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://i.ytimg.com/vi/vVfud6vol-U/maxresdefault.jpg')
 tracks = Track.create(
   name: "You Are The Reason",
   artist: "Calum Scott, Leona Lewis",
   genre: "Pop"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+
+file = URI.open('https://i.scdn.co/image/ab67616d00001e02d08209944468440145f01524')
 tracks = Track.create(
   name: "Photograph",
   artist: "Ed Sheeran",
   genre: "Pop"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
+file = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSjUlWvxSwboi-EDkmQwjlR3N_DM63Bx1rr8A&usqp=CAU')
 tracks = Track.create(
   name: "Memories",
   artist: "Maroon 5",
   genre: "Pop"
   )
+tracks.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
 
+
+
+file = URI.open('https://i0.wp.com/weownthenitenyc.com/wp-content/uploads/2019/02/We-Own-The-Nite-NYC_Untold-Music-Festival-2019_Line-up_Romania_UNTOLD_Festival_2018_Main-Stage.jpeg.jpeg?fit=960%2C639&ssl=1')
 events = Event.create(
   date: "12.09.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
   name: "Untold"
   )
+events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
 
+file = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR0lpEDZEuIy2b_jE8XKB8Bzld6tGr5pLzNWQ&usqp=CAU')
 events = Event.create(
   date: "07.10.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
   name: "Homeboy"
   )
+events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
 
+
+file = URI.open('https://www.themayor.eu/uploads/image/file/2877/medium_Neversea.jpg?1558434364')
 events = Event.create(
   date: "08.09.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
   name: "NeverSea"
   )
+events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
+
+
+
+file = URI.open('https://d2joqs9jfh6k92.cloudfront.net/wp-content/uploads/2018/02/15174541/hold-fast-direct-2.jpg')
+events = Event.create(
+  date: "09.10.2020",
+  venue_id: Venue.first.id,
+  user_id: User.first.id,
+  name: "Retro Bar"
+  )
+events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
+
+
+
+file = URI.open('https://devourparisfoodtours.com/wp-content/uploads/paris-nightlife-lulu-white.jpg')
+events = Event.create(
+  date: "08.12.2020",
+  venue_id: Venue.first.id,
+  user_id: User.first.id,
+  name: "Lulu White Drinking Club"
+  )
+events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
+
+
+file = URI.open('https://miro.medium.com/max/1200/1*oAOr1sVjmQxeH7iUoV4q4Q.jpeg')
+events = Event.create(
+  date: "04.09.2020",
+  venue_id: Venue.first.id,
+  user_id: User.first.id,
+  name: "Soho Residence"
+  )
+events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
+
+
+file = URI.open('https://media-cdn.tripadvisor.com/media/photo-m/1280/1a/1c/fd/38/the-lighthouse-bar-club.jpg')
+events = Event.create(
+  date: "09.09.2020",
+  venue_id: Venue.first.id,
+  user_id: User.first.id,
+  name: "Lighthouse Bar & Nightclub"
+  )
+events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
+
+
+
+file = URI.open('https://ents24.imgix.net/image/000/355/619/18924bda8e31bcb4e2a720f8299823d8d316828c.jpg?auto=format&fp-x=0.503&fp-y=0.511&fit=crop&crop=focalpoint&w=1920&h=1920')
+events = Event.create(
+  date: "07.09.2020",
+  venue_id: Venue.first.id,
+  user_id: User.first.id,
+  name: "The O2"
+  )
+events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
+
+
+
+file = URI.open('https://d31fr2pwly4c4s.cloudfront.net/1/e/c/1202625_1_wicked-student-nights-every-friday-at-cafe-de-paris_400.jpg')
+events = Event.create(
+  date: "15.09.2020",
+  venue_id: Venue.first.id,
+  user_id: User.first.id,
+  name: "Café de Paris"
+  )
+events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
+
+
+
+file = URI.open('https://www.culturewhisper.com/images/thumbs/cw-34211-635x361.jpg')
+events = Event.create(
+  date: "20.09.2020",
+  venue_id: Venue.first.id,
+  user_id: User.first.id,
+  name: "Phoenix Arts Club"
+  )
+events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
+
+
+
+file = URI.open('https://theoldqueenshead.com/wp-content/uploads/2014/11/untitled-1-of-166.jpg')
+events = Event.create(
+  date: "10.10.2020",
+  venue_id: Venue.first.id,
+  user_id: User.first.id,
+  name: "The Old Queens Head"
+  )
+events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+
+
+
 
 event_tracks = EventTrack.create(
-  already_played: false,
   track_id: Track.first.id,
   event_id: Event.first.id
   )
 
+
 event_tracks = EventTrack.create(
-  already_played: true,
   track_id: Track.first.id + 1,
   event_id: Event.first.id
   )
 
 event_tracks = EventTrack.create(
-  already_played: true,
   track_id: Track.first.id + 1,
   event_id: Event.first.id + 1
   )
 
-
+event_tracks = EventTrack.create(
+  track_id: Track.first.id + 1,
+  event_id: Event.first.id + 1
+  )

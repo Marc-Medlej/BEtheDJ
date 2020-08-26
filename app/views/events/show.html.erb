@@ -7,7 +7,7 @@
 <h1><%= @event.name %></h1>
 <% @tracks.each do |track| %>
 <div class="container song-card">
-    <div class="d-flex m-2">  
+    <div class="d-flex m-2">
         <%=image_tag("music notes.jpg", height: 100, width: 100, crop: :scale  )%>
         <div class="align-self-center">
             <h4 class="m-0"><%= track.name %> </h4>
@@ -23,6 +23,11 @@
     </div>
 </div>
 <% end %>
+
+
+  <div class="img-background">
+    <%= image_tag event.photo %>
+  </div>
 
 <%= @track_request_count.sort_by {|_k, v| -v}.to_h %>
 
