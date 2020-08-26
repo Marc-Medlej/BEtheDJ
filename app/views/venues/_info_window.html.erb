@@ -1,8 +1,11 @@
 <div class="container">
-<%= link_to venue_path(venue) do %>
 
-<p><i class="fas fa-cocktail"></i> <%= venue.name %></p>
-<p><i class="fas fa-map-marker-alt"></i> <%= venue.location %></p>
-<% end %>
+  <div class="img-backgroung">
+    <%= image_tag venue.photo %>
+  </div>
 
+  <%= link_to venue_path(venue) do %>
+    <h5><i class="fas fa-cocktail"></i> <%= venue.name %></h5>
+    <% end %>
+    <p><i class="fas fa-map-marker-alt"></i> <%= venue.location %></p>
 </div>
