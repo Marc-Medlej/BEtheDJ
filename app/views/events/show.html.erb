@@ -1,3 +1,9 @@
+<% if @event.user == current_user %>
+    <p>DJ DASHBOARD</p>
+<% else %>
+    <p>Event Music Library</p>
+<% end %>
+
 <h1><%= @event.name %></h1>
 <% @tracks.each do |track| %>
 <div class="container song-card">
@@ -8,7 +14,11 @@
             <p class="m-0"><%= track.artist %></p>
         </div>
         <div class="ml-auto align-self-center">
-            <p><%= button_to "request", event_track_requests_path(@event, track), method: :create%></p>
+            <% if @event.user == current_user %>
+                <p><%= button_to "Mark as played", "/event_tracks/#{EventTrack.where(track_id: track.id).where(event_id: @event.id)[0].id}", method: :patch%></p>
+            <% else %>
+                <p><%= button_to "request", event_track_requests_path(@event, track), method: :create%></p>
+            <% end %>
         </div>
     </div>
 </div>
