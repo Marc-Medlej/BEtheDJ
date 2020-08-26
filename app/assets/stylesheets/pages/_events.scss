@@ -1,14 +1,8 @@
 
 .add-new {
   background-color: $purple;
-
 }
 
-.bg {
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-}
 
 .link-whiten a {
   text-decordation: none;
@@ -98,3 +92,7 @@
   }
 }
 
+.space-man {
+  display: flex;
+  justify-content: space-between;
+}
