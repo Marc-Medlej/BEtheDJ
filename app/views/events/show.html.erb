@@ -48,6 +48,11 @@
     <% end %>
 <% end %>
 
+
+  <div class="img-background">
+    <%= image_tag event.photo %>
+  </div>
+
 <%= @track_request_count.sort_by {|_k, v| -v}.to_h %>
 
 <%= link_to 'Back', root_path %>
