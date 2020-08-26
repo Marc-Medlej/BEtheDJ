@@ -66,8 +66,8 @@ venues.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
 
-
-file = URI.open('https://f3e6t7k9.stackpathcdn.com/wp-content/uploads/2018/04/Cafe-De-Paris-.jpg')
+file = URI.open('https://static.designmynight.com/uploads/2018/01/13336024_1356851664330971_2199124175865444348_n-optimised.jpg')
+# file = URI.open('https://f3e6t7k9.stackpathcdn.com/wp-content/uploads/2018/04/Cafe-De-Paris-.jpg')
 venues = Venue.create(
     name: "Café de Paris",
     location: "3-4 Coventry St, West End, London"
@@ -172,7 +172,8 @@ venues.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
 
-file = URI.open('https://en.parisinfo.com/var/otcp/sites/images/node_43/node_51/node_77884/node_77888/whisper-club-paris-salle-%7C-630x405-%7C-%C2%A9-otcp/18061969-1-fre-FR/Whisper-Club-Paris-Salle-%7C-630x405-%7C-%C2%A9-OTCP.jpg')
+file = URI.open('https://static.designmynight.com/uploads/2018/01/13336024_1356851664330971_2199124175865444348_n-optimised.jpg')
+# file = URI.open('https://en.parisinfo.com/var/otcp/sites/images/node_43/node_51/node_77884/node_77888/whisper-club-paris-salle-%7C-630x405-%7C-%C2%A9-otcp/18061969-1-fre-FR/Whisper-Club-Paris-Salle-%7C-630x405-%7C-%C2%A9-OTCP.jpg')
 venues = Venue.create(
     name: "The Club",
     location: "24 Rue Surcouf, 75007 Paris"
