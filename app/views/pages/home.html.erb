@@ -1,16 +1,31 @@
-<h1>BeTheDj</h1>
-<br>
+
+
+<div class="banner" style="background-image:("asset-url(landing");>
 
 <div class="container justify-content-center mt-3">
+  <h1>BeTheDj</h1>
+
+
 <%= form_tag venues_path, class: "search-tab", method: :get do %>
   <%= text_field_tag :query,
     params[:query],
     id: "venue_location",
     class: "search-field justify-content-center",
     placeholder: "Search by location"
+
   %>
   <%= button_tag :submit, class: "create-button p-1" do %>
     <i class="fas fa-search"></i>
   <% end %>
+  <div class="homecontainer">  <button type="btn primary" class="block">Login</button> </div>
+
+
 <% end %>
+
+
 </div>
+
+
+
+  </div>
+

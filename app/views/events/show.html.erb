@@ -1,27 +1,51 @@
 <% if @event.user == current_user %>
-    <p>DJ DASHBOARD</p>
-<% else %>
-    <p>Event Music Library</p>
-<% end %>
+  <p>DJ DASHBOARD</p>
+  <h1><%= @event.name %></h1>
 
-<h1><%= @event.name %></h1>
-<% @tracks.each do |track| %>
-<div class="container song-card">
-    <div class="d-flex m-2">
-        <%=image_tag("music notes.jpg", height: 100, width: 100, crop: :scale  )%>
-        <div class="align-self-center">
+  <%# raise %>
+    <% @tracks.each do |track| %>
+    <% unless @event.event_tracks.find_by(track: track).already_played %>
+      <div class="container song-card">
+        <div class="d-flex m-2">
+          <%=image_tag("music notes.jpg", height: 100, width: 100, crop: :scale  )%>
+          <div class="align-self-center">
             <h4 class="m-0"><%= track.name %> </h4>
             <p class="m-0"><%= track.artist %></p>
+          </div>
+          <div class="ml-auto align-self-center">
+            <p><%= button_to "Mark as played", "/event_tracks/#{EventTrack.where(track_id: track.id).where(event_id: @event.id)[0].id}", method: :patch%></p>
+          </div>
         </div>
-        <div class="ml-auto align-self-center">
-            <% if @event.user == current_user %>
-                <p><%= button_to "Mark as played", "/event_tracks/#{EventTrack.where(track_id: track.id).where(event_id: @event.id)[0].id}", method: :patch%></p>
+      </div>
+     <% end %>
+  <% end %>
+<% else %>
+  <p>Event Music Library</p>
+  <h1><%= @event.name %></h1>
+    <% @tracks.each do |track| %>
+      <% if @event.event_tracks.find_by(track: track).already_played %>
+        <div class="container song-card make-grey">
+          <div class="d-flex m-2">
+            <%=image_tag("music notes.jpg", height: 100, width: 100, crop: :scale  )%>
+            <div class="align-self-center">
+              <h4 class="m-0"><%= track.name %> </h4>
+              <p class="m-0"><%= track.artist %></p>
+            </div>
             <% else %>
+             <div class="container song-card">
+              <div class="d-flex m-2">
+              <%=image_tag("music notes.jpg", height: 100, width: 100, crop: :scale  )%>
+                <div class="align-self-center">
+                  <h4 class="m-0"><%= track.name %> </h4>
+                  <p class="m-0"><%= track.artist %></p>
+                </div>
+              <div class="ml-auto align-self-center">
                 <p><%= button_to "request", event_track_requests_path(@event, track), method: :create%></p>
+              </div>
             <% end %>
         </div>
-    </div>
-</div>
+      </div>
+    <% end %>
 <% end %>
 
 
