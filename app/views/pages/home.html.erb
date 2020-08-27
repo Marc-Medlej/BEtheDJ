@@ -5,10 +5,11 @@
 <div class="d-flex flex-column justify-content-around h-100">
 
 
+<div>
 
-
-  <h1 class="some">BEtheDJ</h1>
-
+  <h1 class="some"><span>BE<b>the</b>DJ</span></h1>
+  <h1 class="some rotate"><span>BE<b>the</b>DJ</span></h1>
+</div>
   <div class="container justify-content-center mt-3">
 
 <%= form_tag venues_path, class: "search-tab", method: :get do %>
@@ -16,11 +17,11 @@
     params[:query],
     id: "venue_location",
     class: "search-field justify-content-center",
-    placeholder: "Search by location"
+    placeholder: "Search your area"
 
   %>
-  <%= button_tag :submit, class: "create-button p-1" do %>
-    <i class="fas fa-search"></i>
+  <%= button_tag :submit, class: "create-button locate-button" do %>
+    <p>Locate</p>
   <% end %>
 
 <% end %>
