@@ -52,17 +52,40 @@ padding-top:15px;}
 
 }
 .some {
-
-
     font-size: 20pt;
-    font-family: Arial, sans-serif;
+    font-weight: bolder;
+    margin-bottom: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    line-height: 7pt;
+    b {
+      font-size: 10pt;
+    }
 }
 .search-field{
   margin-bottom:5px;
+  border-radius: 50px;
+  opacity: 0.8;
 }
 h3 {
 
   color: #F2F2F2;
   font-weight: 800px;
 
+}
+
+.rotate {
+  transform: scale(-1, 1);
+  transform: scale(1, -1);
+  color: #ebecf1;
+  opacity: 0.5;
+  margin-top: 0;
+}
+
+.locate-button {
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  p {
+    margin-bottom: 0;
+  }
 }
