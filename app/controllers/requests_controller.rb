@@ -26,6 +26,6 @@ class RequestsController < ApplicationController
         @request = Request.find(params[:id])
         @request.destroy
 
-        redirect_to event_requests_path(@request.event)
+        redirect_to event_path(@request.event)
     end
 end

@@ -1,9 +1,23 @@
+<div class="d-flex">
+
+    <div class="ml-2 mr-4">
+      <%= link_to venue_path(@event.venue) do %>
+        <i class="fas fa-chevron-left"></i>
+      <% end %>
+    </div>
+
+</div>
+
+
+
+
 <% if @event.user == current_user %>
   <p>DJ DASHBOARD</p>
 
    <p>Top requested songs</p>
   <%# raise %>
-    <% @tracks.each do |track| %>
+    <% @track_request_count.each do |track_id, count| %>
+    <% track = Track.find(track_id) %>
     <% unless @event.event_tracks.find_by(track: track).already_played %>
       <div class="container song-card">
         <div class="d-flex m-2">
@@ -13,12 +27,14 @@
             <p class="m-0"><%= track.artist %></p>
           </div>
           <div class="ml-auto align-self-center">
+            <p><%= count %> request(s)</p>          
             <p><%= button_to "Mark as played", "/event_tracks/#{EventTrack.where(track_id: track.id).where(event_id: @event.id)[0].id}", method: :patch%></p>
           </div>
         </div>
       </div>
      <% end %>
   <% end %>
+
 <% else %>
 
   <div class="container justify-content-center mt-3">
@@ -34,49 +50,100 @@
     <% end %>
   </div>
 
-   <p class="text-center pt-4">Press <span class="request-button"><i class="fas fa-arrow-alt-circle-up"></i></span> to request your song</p>
-    <% @tracks.each do |track| %>
-      <% if @event.event_tracks.find_by(track: track).already_played %>
-        <div class="container song-card make-grey">
-          <div class="d-flex m-2">
-            <%=image_tag(track.photo, height: 100, width: 100, crop: :scale  )%>
-            <div class="align-self-center">
-              <h4 class="m-0"><%= track.name %> </h4>
-              <p class="m-0"><%= track.artist %></p>
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-all-tab" data-toggle="tab" href="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true">All songs</a>
+      <a class="nav-item nav-link" id="nav-played-tab" data-toggle="tab" href="#nav-played" role="tab" aria-controls="nav-played" aria-selected="false">Played songs</a>
+      <a class="nav-item nav-link" id="nav-requested-tab" data-toggle="tab" href="#nav-requested" role="tab" aria-controls="nav-requested" aria-selected="false">Requested songs</a>
+    </div>
+  </nav>
 
-            </div>
-            <% else %>
-             <div class="container song-card">
-              <div class="d-flex m-2">
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
+      <p class="text-center pt-4">Press <span class="request-button"><i class="fas fa-arrow-alt-circle-up"></i></span> to request your song</p>
+      <% @tracks.each do |track| %>
+        <% if @event.event_tracks.find_by(track: track).already_played %>
+          <div class="container song-card make-grey">
+        <% else %>
+          <div class="container song-card">
+        <% end %>
+            <div class="d-flex m-2">
               <%=image_tag(track.photo, height: 100, width: 100, crop: :scale  )%>
-                <div class="align-self-center m-2">
-                  <h4 class="m-0"><%= track.name %> </h4>
-                  <p class="m-0"><%= track.artist %></p>
-
-                </div>
-              <div class="ml-auto align-self-center request-button">
-                <%= link_to event_track_requests_path(@event, track), method: :create do %>
-                <i class="fas fa-arrow-alt-circle-up"></i>
-              <% end %>
+              <div class="align-self-center">
+                <h4 class="m-0"><%= track.name %> </h4>
+                <p class="m-0"><%= track.artist %></p>
               </div>
-              <div class="card-counter">
-                <% @new_id = Track.find_by(name: track.name).id %>
-                  <% new_num = @track_request_count.select do |k,v| %>
-                  <%# raise %>
-                    <% if k.to_s == @new_id.to_s %>
-                      <% v %>
+
+
+              <% unless @event.event_tracks.find_by(track: track).already_played %>
+                <% if @event.requests.find_by(track: track) %> 
+                  <div class="ml-auto align-self-center">
+                    <p><i>requested</i></p>
+                    <div class="ml-auto align-self-center request-button">
+                    <%= link_to request_path(Request.where(track_id: track.id).where(event_id: @event.id).where(user_id: current_user.id)[0].id), method: :delete do %>
+                      <i class="fas fa-trash-alt"></i>
                     <% end %>
-                  <% end %>
-                <p><%= new_num.values.join('') %></p>
-              </div>
-            <% end %>
+                    </div>
+                  </div>
+                <% else %>
+                  <div class="ml-auto align-self-center request-button">
+                    <%= link_to event_track_requests_path(@event, track), method: :create do %>
+                      <i class="fas fa-arrow-alt-circle-up"></i>
+                    <% end %>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+
+    <div class="tab-pane fade" id="nav-played" role="tabpanel" aria-labelledby="nav-played-tab">
+      <% @played_tracks.each do |track| %>
+          <div class="container song-card make-grey">
+            <div class="d-flex m-2">
+              <%=image_tag(track.photo, height: 100, width: 100, crop: :scale  )%>
+              <div class="align-self-center">
+                <h4 class="m-0"><%= track.name %> </h4>
+                <p class="m-0"><%= track.artist %></p>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+
+    <div class="tab-pane fade" id="nav-requested" role="tabpanel" aria-labelledby="nav-requested-tab">
+      <% @requested_tracks.each do |track| %>
+        <% if @event.event_tracks.find_by(track_id: track.id).already_played %>
+          <div class="container song-card make-grey">
+        <% else %>
+          <div class="container song-card">
+        <% end %>
+            <div class="d-flex m-2">
+              <%=image_tag(track.photo, height: 100, width: 100, crop: :scale  )%>
+              <div class="align-self-center">
+                <h4 class="m-0"><%= track.name %> </h4>
+                <p class="m-0"><%= track.artist %></p>
+              </div>
+
+
+              <% unless @event.event_tracks.find_by(track: track).already_played %>
+                <% if @event.requests.find_by(track: track) %> 
+                  <div class="ml-auto align-self-center">
+                    <p><i>requested</i></p>
+                    <div class="ml-auto align-self-center request-button">
+                      <%= link_to request_path(Request.where(track_id: track.id).where(event_id: @event.id).where(user_id: current_user.id)[0].id), method: :delete do %>
+                        <i class="fas fa-trash-alt"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-<%# raise %>
-<%= @track_request_count.sort_by {|_k, v| -v}.to_h %>
 
-<%= link_to 'Back', root_path %>
 
-<%= link_to 'My requests', event_requests_path(@event) %>
