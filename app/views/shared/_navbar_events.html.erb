@@ -1,0 +1,32 @@
+<ul class="navbar flex-container space-between navbar-expand-sm navbar-light navbar-lewagon sticky-top">
+    <li class="flex-item">
+     <%= link_to root_path, class: "navbar-brand" do %>
+    <%= image_tag("bethedj-logo.png") %>
+    <% end %>
+    </li>
+    <li class="flex-item"><h2>EVENT LIST</h2></li>
+
+    <li class="flex-item">
+      <div class="d-flex" id="navbarSupportedContent">
+        <h2 class="add-new px-2 link-whiten mr-4 mt-1">
+        <strong>  <%= link_to "+", new_venue_event_path(@venue) %> </strong>
+        </h2>
+        <div class="mr-auto">
+          <% if user_signed_in? %>
+            <div class="nav-item dropdown">
+              <%= image_tag("https://avatars2.githubusercontent.com/u/60608204?s=460&u=517fe81ca49a5627e1e845120537a7a5b6f3b346&v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false )%>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+
+            </div>
+          <% else %>
+            <div class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </li>
+</ul>
