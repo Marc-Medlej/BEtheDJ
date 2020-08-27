@@ -5,8 +5,6 @@ class Venue < ApplicationRecord
   #   using: {
   #     tsearch: { prefix: true } # <-- now `superman batm` will return something!
   #   }
-
-
   has_many :events, dependent: :destroy
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
