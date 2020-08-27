@@ -1,10 +1,16 @@
 
 
-<div class="banner" style="background-image:("asset-url(landing");>
+<div class="banner"style="background-image:("asset-url(landing");>
 
-<div class="container justify-content-center mt-3">
-  <h1>BeTheDj</h1>
+<div class="d-flex flex-column justify-content-around h-75">
 
+
+
+
+
+  <h1 class="some">BEtheDJ</h1>
+
+  <div class="container justify-content-center mt-3">
 
 <%= form_tag venues_path, class: "search-tab", method: :get do %>
   <%= text_field_tag :query,
@@ -17,15 +23,15 @@
   <%= button_tag :submit, class: "create-button p-1" do %>
     <i class="fas fa-search"></i>
   <% end %>
-  <div class="homecontainer">  <button type="btn primary" class="block">Login</button> </div>
-
 
 <% end %>
-
+</div>
+ <div class="d-flex flex-column justify-content-center">
+  <h3> You Request </h3>
+  <h3> We Play </h3>
+  </div>
+</div>
 
 </div>
 
-
-
-  </div>
 
