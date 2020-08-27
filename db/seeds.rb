@@ -205,7 +205,7 @@ users = User.create(
   first_name: "William",
   last_name: "Brown",
   email: "WilliamBrown@gmail.com",
-  dj_name: "Will",
+  dj_name: "DJ Will",
   password: "bethedj"
   )
 
@@ -214,7 +214,7 @@ users = User.create(
   first_name: "Bill",
   last_name: "White",
   email: "BillWhite@gmail.com",
-  dj_name: "Billy",
+  dj_name: "DJ Bil",
   password: "bethedj"
   )
 
@@ -223,7 +223,7 @@ users = User.create(
   first_name: "Rammy",
   last_name: "Wilston",
   email: "rammy@gmail.com",
-  dj_name: "RW",
+  dj_name: "DJ Rmmy",
   password: "bethedj"
   )
 
@@ -232,7 +232,7 @@ users = User.create(
   first_name: "Armin",
   last_name: "VanBuren",
   email: "arminvan@gmail.com",
-  dj_name: "ArmVan",
+  dj_name: " DJ Armin",
   password: "bethedj"
   )
 
@@ -535,7 +535,7 @@ events = Event.create(
   date: "12.09.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "XOYO"
+  name: "Untold"
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
@@ -546,7 +546,7 @@ events = Event.create(
   date: "07.10.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "Jazz"
+  name: "Wildlife!"
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
@@ -558,7 +558,7 @@ events = Event.create(
   date: "08.09.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "The Underworld"
+  name: "Freedom"
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
@@ -570,7 +570,7 @@ events = Event.create(
   date: "09.10.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "The Camden Assembly"
+  name: "BASHMENT vs SOCA"
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
@@ -582,7 +582,7 @@ events = Event.create(
   date: "08.12.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "Lockside Camden"
+  name: "London Carni Weekender"
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
@@ -593,7 +593,7 @@ events = Event.create(
   date: "04.09.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "Upper House Islington"
+  name: "Lagos Fridays"
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
@@ -604,7 +604,7 @@ events = Event.create(
   date: "09.09.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "The Devonshire Arms"
+  name: "THE GOOD TIMES"
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
@@ -616,7 +616,7 @@ events = Event.create(
   date: "07.09.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "Ronnie Scott's"
+  name: "Summer Day Party"
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
@@ -628,7 +628,7 @@ events = Event.create(
   date: "15.09.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "The Social"
+  name: "HEADPHONE PARTY"
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
@@ -640,7 +640,7 @@ events = Event.create(
   date: "20.09.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "Ruby's"
+  name: "RnBX "
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
