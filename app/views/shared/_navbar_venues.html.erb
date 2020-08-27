@@ -1,28 +1,33 @@
-<ul class="navbar flex-container space-between navbar-expand-sm navbar-light navbar-lewagon sticky-top">
+<ul class="navbar flex-container flex-nowrap space-between navbar-expand-sm navbar-light navbar-lewagon sticky-top">
     <li class="flex-item">
      <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag("bethedj-logo.png") %>
+    <%= image_tag("data:image/jpeg;base64,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") %>
     <% end %>
     </li>
-    <li class="flex-item"><h2>VENUE LIST</h2></li>
+    <li class="flex-item text-center"><h5>VENUES</h5></li>
 
     <li class="flex-item">
-     <div class="d-flex" id="navbarSupportedContent">
+      <div class="d-flex" id="navbarSupportedContent">
+
         <div class="mr-auto">
           <% if user_signed_in? %>
-            <li class="nav-item dropdown">
-              <%= image_tag("https://avatars2.githubusercontent.com/u/60608204?s=460&u=517fe81ca49a5627e1e845120537a7a5b6f3b346&v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false )%>
+            <div class="nav-item dropdown">
+              <%= image_tag("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRSU89HWwKcxwv_SH4m_5Gs9m5-yGJUme_6cw&usqp=CAU", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false )%>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                 <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </div>
-            </li>
+
+            </div>
           <% else %>
-            <li class="nav-item">
+            <div class="nav-item">
               <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-            </li>
+            </div>
           <% end %>
-        </ul>
+        </div>
       </div>
     </li>
 </ul>
+
+
+

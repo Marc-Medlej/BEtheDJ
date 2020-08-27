@@ -1,11 +1,11 @@
-<div class="container">
-
-  <div class="img-background">
-    <%= image_tag venue.photo %>
-  </div>
-
+<div class="container rounded">
   <%= link_to venue_path(venue) do %>
-    <h5><i class="fas fa-cocktail"></i> <%= venue.name %></h5>
+    <div class="img-background rounded">
+      <%= image_tag venue.photo %>
+    </div>
+    <div class="link-darken">
+      <h6 class="pt-2"></i> <%= venue.name.upcase %></h6>
+      <p><i class="fas fa-map-marker-alt"></i> <%= venue.location %></p>
+    </div>
     <% end %>
-    <p><i class="fas fa-map-marker-alt"></i> <%= venue.location %></p>
 </div>
