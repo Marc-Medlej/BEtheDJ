@@ -1,3 +1,5 @@
+<%= render 'shared/navbar_eventtracks' %>
+
 <div class="d-flex">
 
     <div class="ml-2 mr-4">
@@ -27,7 +29,7 @@
             <p class="m-0"><%= track.artist %></p>
           </div>
           <div class="ml-auto align-self-center">
-            <p><%= count %> request(s)</p>          
+            <p><%= count %> request(s)</p>
             <p><%= button_to "Mark as played", "/event_tracks/#{EventTrack.where(track_id: track.id).where(event_id: @event.id)[0].id}", method: :patch%></p>
           </div>
         </div>
@@ -76,7 +78,7 @@
 
 
               <% unless @event.event_tracks.find_by(track: track).already_played %>
-                <% if @event.requests.find_by(track: track) %> 
+                <% if @event.requests.find_by(track: track) %>
                   <div class="ml-auto align-self-center">
                     <p><i>requested</i></p>
                     <div class="ml-auto align-self-center request-button">
@@ -128,7 +130,7 @@
 
 
               <% unless @event.event_tracks.find_by(track: track).already_played %>
-                <% if @event.requests.find_by(track: track) %> 
+                <% if @event.requests.find_by(track: track) %>
                   <div class="ml-auto align-self-center">
                     <p><i>requested</i></p>
                     <div class="ml-auto align-self-center request-button">

@@ -18,10 +18,12 @@ class VenuesController < ApplicationController
     #   end
     # end
 
-      # @venues = Venue.where("location @@ :query", query: "%#{params[:query]}%")
-      @venues = Venue.near("#{params[:query]}")
-
-
+      # if @venues = Venue.search_by_name_and_location(params[:query])
+      # else
+      #   @venues = @venues = Venue.near("#{params[:query]}")
+      # # @venues = Venue.where("location @@ :query", query: "%#{params[:query]}%")
+      # end
+       @venues = @venues = Venue.near("#{params[:query]}")
       @geo_venues = @venues.geocoded
 
       @markers = @geo_venues.map do |geo_venue|

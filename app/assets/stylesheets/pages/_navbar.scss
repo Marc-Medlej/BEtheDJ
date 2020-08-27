@@ -1,0 +1,46 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+.navbar-brand {
+  background-color: white;
+  border-radius: 50%;
+  padding: 4px 4px;
+  margin-left: 4px;
+}
+
+.navbar {
+  background: $neon-blue;
+}
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.flex-item {
+  padding: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.reduce-padding {
+  padding-left: 0;
+  padding-right: 0;
+}
