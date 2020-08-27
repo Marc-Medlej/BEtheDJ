@@ -35,11 +35,30 @@ $dark-blue: #32426F;
   cursor: pointer;
   text-align: center;
     border-radius: 25px;
-}
+  }
+
+
 
 .homecontainer {
   display: flex;
 justify-content: center;
-padding-top:15px;
+padding-top:15px;}
+
+.search-tab {
+  margin:0 auto;
+  position: relative;
+    display: inline-block;
+  width:200px;
+
 }
+.some {
+
+
+    font-size: 20pt;
+    font-family: Arial, sans-serif;
+}
+.search-field{
+  margin-bottom:20px;
+}
+
 
