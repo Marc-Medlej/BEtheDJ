@@ -546,7 +546,7 @@ events = Event.create(
   date: "07.10.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "Wildlife!"
+  name: "Wildlife"
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
@@ -570,7 +570,7 @@ events = Event.create(
   date: "09.10.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "BASHMENT vs SOCA"
+  name: "Bashment"
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
@@ -582,7 +582,7 @@ events = Event.create(
   date: "08.12.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "London Carni Weekender"
+  name: "Carni Weekender"
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
@@ -604,7 +604,7 @@ events = Event.create(
   date: "09.09.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "THE GOOD TIMES"
+  name: "The Good Times"
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
@@ -628,7 +628,7 @@ events = Event.create(
   date: "15.09.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
-  name: "HEADPHONE PARTY"
+  name: "Headphone Party"
   )
 events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
@@ -647,7 +647,7 @@ events.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
 
-file = URI.open('https://theoldqueenshead.com/wp-content/uploads/2014/11/untitled-1-of-166.jpg')
+file = URI.open('https://www.fearfx.co.uk/210-large_default/vortex-tunnel.jpg')
 events = Event.create(
   date: "10.10.2020",
   venue_id: Venue.first.id,
