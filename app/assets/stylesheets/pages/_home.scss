@@ -40,12 +40,13 @@ padding-top:15px;}
   margin:0 auto;
   position: relative;
     display: inline-block;
-  width:200px;
+  width:300px;
 
 }
-.some {
-    font-size: 20pt;
+.app-title {
+    font-size: 45pt;
     font-weight: bolder;
+    color: white;
     margin-bottom: 0;
     margin-block-start: 0;
     margin-block-end: 0;
@@ -59,11 +60,17 @@ padding-top:15px;}
   border-radius: 50px;
   opacity: 0.8;
 }
-h3 {
 
-  color: #F2F2F2;
-  font-weight: 800px;
 
+.app-description {
+  h3 {
+    color: #F2F2F2;
+    font-weight: 800px;
+  }
+  p {
+    color:  #F2F2F2;
+    font-style: italic;
+  }
 }
 
 .rotate {
@@ -80,4 +87,8 @@ h3 {
   p {
     margin-bottom: 0;
   }
+}
+
+.landing-info {
+  height: 95%;
 }
