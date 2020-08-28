@@ -32,7 +32,7 @@
 }
 
 .make-grey {
-  background: $grey;
+  background: $gray;
   color: white;
 }
 
@@ -66,15 +66,14 @@ nav a {
 
 .nav-tabs {
   background-color: $dark-blue;
+  border: 2px solid white;
+
 }
 
-.nav-tabs {
-    border-bottom: 2px solid black;
-}
 
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
     color: black;
-    background-color: #white;
+    background-color: white;
     border-color: #dee2e6 #dee2e6 #F4F4F4;
 }
 
@@ -86,3 +85,39 @@ nav a {
   background-color: #F2F2F2;
   border-radius: 8px;
 }
+
+
+.request-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 12px;
+  font-size: 12px;
+}
+
+
+.request-nav a {
+  text-decoration: none;
+  color: white;
+  background-color: $dark-blue;
+  border-radius: 4px;
+}
+
+.request-nav-item:hover {
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0 0 10px $neon-blue;
+}
+
+.increase-text {
+  font-size: 140%;
+}
+
+.make-black a {
+  color: black;
+}
+
+.search-tracks {
+  border-color: #dee2e6 #dee2e6 #F4F4F4;
+  width:400px;
+}
+

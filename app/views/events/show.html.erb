@@ -2,7 +2,7 @@
 <div class="bg-white">
 <div class="d-flex">
 
-    <div class="ml-2 mr-4">
+    <div class="make-black mx-4 mt-2">
       <%= link_to venue_path(@event.venue) do %>
         <i class="fas fa-chevron-left"></i>
       <% end %>
@@ -11,9 +11,9 @@
 </div>
 
 <% if @event.user == current_user %>
-  <p>DJ DASHBOARD</p>
+  <h5 class=" text-center mb-2">DJ DASHBOARD</h5>
 
-   <p>Top requested songs</p>
+      <p class="text-right pt-4 pr-3"><span class="text-background p-1 m-1"><em> Press to mark as played </em></span><span class="request-button"><i class="far fa-check-square"></i></span></p>
   <%# raise %>
     <% @track_request_count.each do |track_id, count| %>
     <% track = Track.find(track_id) %>
@@ -21,13 +21,20 @@
       <div class="container song-card">
         <div class="d-flex m-2">
           <%=image_tag(track.photo, height: 100, width: 100, crop: :scale  )%>
-          <div class="align-self-center">
-            <h4 class="m-0"><%= track.name %> </h4>
-            <p class="m-0"><%= track.artist %></p>
-          </div>
+            <div class="align-self-center m-3">
+              <h4 class="m-0"><%= track.name %> </h4>
+              <p class="m-0"><%= track.artist %></p>
+              <p class="m-0 genre"><%= track.genre.capitalize %></p>
+            </div>
+
+          <p class="card-request mr-2"><span class="increase-text"><strong><%= count %></strong></span> request(s)</p>
+
           <div class="ml-auto align-self-center">
-            <p><%= count %> request(s)</p>
-            <p><%= button_to "Mark as played", "/event_tracks/#{EventTrack.where(track_id: track.id).where(event_id: @event.id)[0].id}", method: :patch%></p>
+                  <div class="ml-auto align-self-center request-button">
+                    <%= link_to "/event_tracks/#{EventTrack.where(track_id: track.id).where(event_id: @event.id)[0].id}", method: :patch do %>
+                      <i class="far fa-check-square"></i>
+                    <% end %>
+                  </div>
           </div>
         </div>
       </div>
@@ -37,24 +44,24 @@
 <% else %>
 
 
-  <div class="text-center my-3">
-    <%= form_tag event_path, class: "search-tab",  method: :get do %>
+  <div class="text-center">
+    <%= form_tag event_path, class: "search-tracks",  method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "search-field justify-content-center",
-      placeholder: "Search by artist"
+      placeholder: "  Search artist/track"
     %>
-    <%= button_tag :submit, class: "create-button p-1" do %>
+    <%= button_tag :submit, class: "create-button px-2" do %>
       <i class="fas fa-search"></i>
     <% end %>
     <% end %>
   </div>
 
   <nav>
-    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link active" id="nav-all-tab" data-toggle="tab" href="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true">All songs</a>
-      <a class="nav-item nav-link" id="nav-played-tab" data-toggle="tab" href="#nav-played" role="tab" aria-controls="nav-played" aria-selected="false">Played songs</a>
-      <a class="nav-item nav-link" id="nav-requested-tab" data-toggle="tab" href="#nav-requested" role="tab" aria-controls="nav-requested" aria-selected="false">Requested songs</a>
+    <div class="nav request-nav nav-tabs mt-2" id="nav-tab" role="tablist">
+      <a class="nav-item request-nav-item nav-link active" id="nav-all-tab" data-toggle="tab" href="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true">All songs</a>
+      <a class="nav-item request-nav-item nav-link" id="nav-played-tab" data-toggle="tab" href="#nav-played" role="tab" aria-controls="nav-played" aria-selected="false">Played</a>
+      <a class="nav-item request-nav-item nav-link" id="nav-requested-tab" data-toggle="tab" href="#nav-requested" role="tab" aria-controls="nav-requested" aria-selected="false">Requested</a>
     </div>
   </nav>
 
@@ -135,11 +142,11 @@
               <% unless @event.event_tracks.find_by(track: track).already_played %>
                 <% if @event.requests.find_by(track: track) %>
                   <div class="ml-auto align-self-center">
-                    <p><i>Requested</i></p>
-                    <div class="ml-auto align-self-center request-button">
-                      <%= link_to request_path(Request.where(track_id: track.id).where(event_id: @event.id).where(user_id: current_user.id)[0].id), method: :delete do %>
-                        <i class="fas fa-trash-alt"></i>
-                      <% end %>
+                    <i class="card-request mr-2">Requested</i>
+                    <div class="ml-auto align-self-center request-button-trash">
+                    <%= link_to request_path(Request.where(track_id: track.id).where(event_id: @event.id).where(user_id: current_user.id)[0].id), method: :delete do %>
+                      <i class="fas fa-trash-alt"></i>
+                    <% end %>
                     </div>
                   </div>
                 <% end %>
