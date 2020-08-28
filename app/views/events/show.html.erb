@@ -84,7 +84,7 @@
 
 
               <% unless @event.event_tracks.find_by(track: track).already_played %>
-                <% if @event.requests.find_by(track: track) %>
+                <% if Request.where(track_id: track.id).where(event_id: @event.id).where(user_id: current_user.id)[0] %>
 
 
                   <i class="card-request mr-2">Requested</i>
@@ -140,7 +140,7 @@
 
 
               <% unless @event.event_tracks.find_by(track: track).already_played %>
-                <% if @event.requests.find_by(track: track) %>
+                <% if Request.where(track_id: track.id).where(event_id: @event.id).where(user_id: current_user.id)[0] %>
                   <div class="ml-auto align-self-center">
                     <i class="card-request mr-2">Requested</i>
                     <div class="ml-auto align-self-center request-button-trash">
