@@ -1,6 +1,7 @@
 .song-card {
+  margin: 4px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 2px -2px gray;
   align-items: center;
   overflow: hidden;
   position: relative;
@@ -15,6 +16,11 @@
   top: 2vh;
   right: 9vw;
   }
+   .card-request {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  }
    .card-link {
   position: absolute;
   top: 0;
@@ -26,7 +32,7 @@
 }
 
 .make-grey {
-  background: gray;
+  background: $grey;
   color: white;
 }
 
@@ -37,6 +43,46 @@
   color: white;
   border: none;
   &:hover {
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
   }
+}
+
+.request-button-trash {
+  background-color: $purple;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  &:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+}
+
+
+nav a {
+  color: white;
+
+}
+
+.nav-tabs {
+  background-color: $dark-blue;
+}
+
+.nav-tabs {
+    border-bottom: 2px solid black;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: black;
+    background-color: #white;
+    border-color: #dee2e6 #dee2e6 #F4F4F4;
+}
+
+.genre {
+  font-size: 10px;
+}
+
+.text-background {
+  background-color: #F2F2F2;
+  border-radius: 8px;
 }

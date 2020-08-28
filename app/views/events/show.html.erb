@@ -1,5 +1,5 @@
 <%= render 'shared/navbar_eventtracks' %>
-
+<div class="bg-white">
 <div class="d-flex">
 
     <div class="ml-2 mr-4">
@@ -9,9 +9,6 @@
     </div>
 
 </div>
-
-
-
 
 <% if @event.user == current_user %>
   <p>DJ DASHBOARD</p>
@@ -39,7 +36,8 @@
 
 <% else %>
 
-  <div class="container justify-content-center mt-3">
+
+  <div class="text-center my-3">
     <%= form_tag event_path, class: "search-tab",  method: :get do %>
     <%= text_field_tag :query,
       params[:query],
@@ -62,7 +60,7 @@
 
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
-      <p class="text-center pt-4">Press <span class="request-button"><i class="fas fa-arrow-alt-circle-up"></i></span> to request your song</p>
+      <p class="text-right pt-4 pr-3"><span class="text-background p-1 m-1"><em> Press icon to request your song </em></span><span class="request-button"><i class="fas fa-arrow-alt-circle-up"></i></span></p>
       <% @tracks.each do |track| %>
         <% if @event.event_tracks.find_by(track: track).already_played %>
           <div class="container song-card make-grey">
@@ -71,22 +69,25 @@
         <% end %>
             <div class="d-flex m-2">
               <%=image_tag(track.photo, height: 100, width: 100, crop: :scale  )%>
-              <div class="align-self-center">
+              <div class="align-self-center m-3">
                 <h4 class="m-0"><%= track.name %> </h4>
                 <p class="m-0"><%= track.artist %></p>
+                <p class="m-0 genre"><%= track.genre.capitalize %></p>
               </div>
 
 
               <% unless @event.event_tracks.find_by(track: track).already_played %>
                 <% if @event.requests.find_by(track: track) %>
-                  <div class="ml-auto align-self-center">
-                    <p><i>requested</i></p>
-                    <div class="ml-auto align-self-center request-button">
+
+
+                  <i class="card-request mr-2">Requested</i>
+
+                    <div class="ml-auto align-self-center request-button-trash">
                     <%= link_to request_path(Request.where(track_id: track.id).where(event_id: @event.id).where(user_id: current_user.id)[0].id), method: :delete do %>
                       <i class="fas fa-trash-alt"></i>
                     <% end %>
                     </div>
-                  </div>
+
                 <% else %>
                   <div class="ml-auto align-self-center request-button">
                     <%= link_to event_track_requests_path(@event, track), method: :create do %>
@@ -105,9 +106,10 @@
           <div class="container song-card make-grey">
             <div class="d-flex m-2">
               <%=image_tag(track.photo, height: 100, width: 100, crop: :scale  )%>
-              <div class="align-self-center">
+              <div class="align-self-center m-3">
                 <h4 class="m-0"><%= track.name %> </h4>
                 <p class="m-0"><%= track.artist %></p>
+                <p class="m-0 genre"><%= track.genre.capitalize %></p>
               </div>
             </div>
           </div>
@@ -123,16 +125,17 @@
         <% end %>
             <div class="d-flex m-2">
               <%=image_tag(track.photo, height: 100, width: 100, crop: :scale  )%>
-              <div class="align-self-center">
+              <div class="align-self-center m-3">
                 <h4 class="m-0"><%= track.name %> </h4>
                 <p class="m-0"><%= track.artist %></p>
+                <p class="m-0 genre"><%= track.genre.capitalize %></p>
               </div>
 
 
               <% unless @event.event_tracks.find_by(track: track).already_played %>
                 <% if @event.requests.find_by(track: track) %>
                   <div class="ml-auto align-self-center">
-                    <p><i>requested</i></p>
+                    <p><i>Requested</i></p>
                     <div class="ml-auto align-self-center request-button">
                       <%= link_to request_path(Request.where(track_id: track.id).where(event_id: @event.id).where(user_id: current_user.id)[0].id), method: :delete do %>
                         <i class="fas fa-trash-alt"></i>
@@ -147,5 +150,5 @@
     </div>
   </div>
 <% end %>
-
+</div>
 
