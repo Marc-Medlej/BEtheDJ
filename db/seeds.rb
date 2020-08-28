@@ -202,37 +202,19 @@ venues.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 
 
 users = User.create(
-  first_name: "William",
-  last_name: "Brown",
-  email: "WilliamBrown@gmail.com",
-  dj_name: "DJ Will",
+  first_name: "David",
+  last_name: "Guetta",
+  email: "david@email.com",
+  dj_name: "David Guetta",
   password: "bethedj"
   )
 
 
 users = User.create(
-  first_name: "Bill",
-  last_name: "White",
-  email: "BillWhite@gmail.com",
-  dj_name: "DJ Bil",
-  password: "bethedj"
-  )
-
-
-users = User.create(
-  first_name: "Rammy",
-  last_name: "Wilston",
-  email: "rammy@gmail.com",
-  dj_name: "DJ Rmmy",
-  password: "bethedj"
-  )
-
-
-users = User.create(
-  first_name: "Armin",
-  last_name: "VanBuren",
-  email: "arminvan@gmail.com",
-  dj_name: " DJ Armin",
+  first_name: "Sam",
+  last_name: "Walter",
+  email: "sam@email.com",
+  dj_name: "DJ Sam",
   password: "bethedj"
   )
 
@@ -685,3 +667,26 @@ end
 #   track_id: Track.first.id + 1,
 #   event_id: Event.first.id + 1
 #   )
+
+
+(1..20).to_a.each do |i|
+
+  users = User.create(
+    first_name: "User",
+    last_name: i,
+    email: "User#{i}@email.com",
+    dj_name: "DJ User#{i}",
+    password: "bethedj"
+  )
+
+end
+
+(3..22).to_a.each do |user_id|
+  Track.all.sample(10).each do |track|
+    Request.create(
+      user_id: user_id,
+      track_id: track.id,
+      event_id: 1      
+    )
+  end
+end
