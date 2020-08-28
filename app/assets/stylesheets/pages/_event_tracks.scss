@@ -88,11 +88,12 @@ nav a {
 
 
 .request-nav {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   padding: 12px;
   font-size: 12px;
 }
+
 
 .request-nav a {
   text-decoration: none;
