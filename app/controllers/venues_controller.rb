@@ -44,6 +44,5 @@ class VenuesController < ApplicationController
       @playlist = RSpotify::Playlist.find_by_id(@playlist_code)
       # track_artist = @playlist.tracks.first.artists[0].name
       @tracks = @playlist.tracks
-
     end
 end
