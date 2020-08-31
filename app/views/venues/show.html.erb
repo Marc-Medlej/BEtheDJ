@@ -1,8 +1,21 @@
+
 <%= render 'shared/navbar_events' %>
 <div class="container bg-white">
+  <div class="text-center">
+    <%= form_tag event_path, class: "search-tracks",  method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "search-field justify-content-center",
+      placeholder: "  Search artist/track"
+    %>
+    <%= button_tag :submit, class: "create-button px-2" do %>
+      <i class="fas fa-search"></i>
+    <% end %>
+    <% end %>
+  </div>
 
   <% if @venue.club %>
-  
+
     <div class="row space-man">
       <!-- <div class="col-6">
         <h1><%= @venue.name %></h1>
@@ -47,7 +60,7 @@
         <div class="d-flex m-2">
 
           <% if track.album.images %>
-            
+
             <%=image_tag(track.album.images.first["url"], height: 100, width: 100, crop: :scale  )%>
 
             <% elsif track.artists.first.images %>
@@ -60,7 +73,7 @@
 
           <% end %>
 
-          
+
           <div class="align-self-center m-3">
             <h4 class="m-0"><%= track.name %> </h4>
             <p class="m-0"><%= track.artists.first.name %></p>
@@ -78,3 +91,4 @@
   <% end %>
 
 </div>
+
