@@ -23,7 +23,7 @@
         <%= text_field_tag :query,
           params[:query],
           id: "venue_location",
-          class: "search-field",  
+          class: "search-field",
           placeholder: "Search your area"%>
 
         <%= button_tag :submit, class: "create-button locate-button" do %>
@@ -38,7 +38,7 @@
       <p>Request your songs to the DJ</p>
     </div>
   </div>
-
+  <%= link_to 'Sign in with Spotify', '/auth/spotify' %>
 </div>
 
 
