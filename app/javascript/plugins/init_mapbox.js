@@ -22,7 +22,7 @@ const initMapbox = () => {
         const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
         const el = document.createElement('div');
-        el.className = 'marker';
+        el.className = marker.style;
 
         new mapboxgl.Marker(el)
         .setLngLat([ marker.lng, marker.lat ])
@@ -33,6 +33,7 @@ const initMapbox = () => {
     fitMapToMarkers(map, markers);
   }
 };
+
 
 export { initMapbox };
 

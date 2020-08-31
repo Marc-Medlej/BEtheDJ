@@ -23,17 +23,20 @@ class VenuesController < ApplicationController
       #   @venues = @venues = Venue.near("#{params[:query]}")
       # # @venues = Venue.where("location @@ :query", query: "%#{params[:query]}%")
       # end
-       @venues = @venues = Venue.near("#{params[:query]}")
+
+
+      @venues = Venue.near("#{params[:query]}")
+
       @geo_venues = @venues.geocoded
 
       @markers = @geo_venues.map do |geo_venue|
       {
         lat: geo_venue.latitude,
         lng: geo_venue.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { venue: geo_venue })
+        infoWindow: render_to_string(partial: "info_window", locals: { venue: geo_venue }),
+        style: geo_venue.club ? "marker2" : "marker1"
       }
       end
-
     end
 
     def show
