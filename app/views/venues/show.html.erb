@@ -1,39 +1,67 @@
 <%= render 'shared/navbar_events' %>
 <div class="container bg-white">
-  <div class="row space-man">
-    <!-- <div class="col-6">
-       <h1><%= @venue.name %></h1>
-    </div> -->
-    <div class="col-6">
-    <div class="btn add-new link-whiten mt-4">
-    <%= link_to "+", new_venue_event_path(@venue) %>
-  </div>
-  </div>
-  </div>
+
+  <% if @venue.club %>
+
+    <div class="row space-man">
+      <!-- <div class="col-6">
+        <h1><%= @venue.name %></h1>
+      </div> -->
+      <div class="col-6">
+      <div class="btn add-new link-whiten mt-4">
+      <%= link_to "+", new_venue_event_path(@venue) %>
+    </div>
+    </div>
+    </div>
 
 
-    <div class="row">
-      <% @events.each do |event| %>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <div class="card-product flex-container space-between m-3 p-3">
-            <%= link_to "", event_path(event), class: "card-link"%>
+      <div class="row">
+        <% @events.each do |event| %>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+            <div class="card-product flex-container space-between m-3 p-3">
+              <%= link_to "", event_path(event), class: "card-link"%>
 
-              <%=image_tag(event.photo, height: 150, width: 80, crop: :scale  )%>
+                <%=image_tag(event.photo, height: 150, width: 80, crop: :scale  )%>
 
-              <div class="card-product-infos mt-3">
-                <h4><%= event.name %></h4>
-                <p><i class="fas fa-music"></i> <%= Event.find(event.id).user.dj_name %></p>
-                <p><i class="fas fa-house-user"></i> <%= Event.find(event.id).venue.name %></p>
+                <div class="card-product-infos mt-3">
+                  <h4><%= event.name %></h4>
+                  <p><i class="fas fa-music"></i> <%= Event.find(event.id).user.dj_name %></p>
+                  <p><i class="fas fa-house-user"></i> <%= Event.find(event.id).venue.name %></p>
 
-              <!-- <div class="flex-container"> -->
-               <!--  <div class="card-date"> -->
-                  <p><i class="far fa-calendar-alt"></i> <%= event.date.strftime("%d %b") %></p>
-                 <!--  <p><%= event.date.strftime("%b") %></p> -->
-               <!--  </div> -->
-              <!-- </div> -->
-              </div>
+                <!-- <div class="flex-container"> -->
+                <!--  <div class="card-date"> -->
+                    <p><i class="far fa-calendar-alt"></i> <%= event.date.strftime("%d %b") %></p>
+                  <!--  <p><%= event.date.strftime("%b") %></p> -->
+                <!--  </div> -->
+                <!-- </div> -->
+                </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+  <% else %>
+
+    <p>I'm a bar</p>
+    <!-- <% @tracks.each do |track| %>
+      <div class="container song-card">
+        <div class="d-flex m-2">
+          <%=image_tag("TO REPLACE", height: 100, width: 100, crop: :scale  )%>
+          <div class="align-self-center m-3">
+            <h4 class="m-0"><%= track.name %> </h4>
+            <p class="m-0"><%= track.artist %></p>
+            <p class="m-0 genre"><%= track.genre.capitalize %></p>
+          </div>
+
+          <div class="ml-auto align-self-center request-button">
+            <%= link_to "ADD TO QUEUE", method: :create do %>
+              <i class="fas fa-arrow-alt-circle-up"></i>
+            <% end %>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %> -->
+
+  <% end %>
+
 </div>
