@@ -1,9 +1,45 @@
 
    <%= render 'shared/navbar_venues' %>
-
   <div id="map" class="container mapboxgl-map"
      style="width: 100%; height:800px;"
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Custom legend</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
+</head>
+<body>
+
+<div id='legend' style='display:none; position: sticky;'>
+  <strong>BARS </strong><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTP8tX6UfIem3MTWhSSzCxBcaMVA_Hd-8Whrw&usqp=CAU" alt="alternatetext" style="background-size: cover;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;">
+  <br>
+  <strong>CLUBS</strong><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTNy_dmvbud687ya96nZfUfSPiaCR_mDOFgLg&usqp=CAU" alt="alternatetext" style="background-size: cover;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;">
+</div>
+<div id='map' class='dark'></div>
+
+<script>
+  var map = L.mapbox.map('map', 'examples.map-y7l23tes');
+  map.legendControl
+    .addLegend(document.getElementById('legend').innerHTML)
+    .setPosition('topright');
+</script>
+
+</body>
+</html>
