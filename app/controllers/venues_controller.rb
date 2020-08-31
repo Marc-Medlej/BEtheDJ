@@ -42,5 +42,10 @@ class VenuesController < ApplicationController
     def show
       @venue = Venue.find(params[:id])
       @events = @venue.events
+      # @playlist_code = @venue.playlist_id
+      @playlist_code = '4TaOLNlPlYlcPb2VxBPlkR'
+      @playlist = RSpotify::Playlist.find_by_id(@playlist_code)
+      # track_artist = @playlist.tracks.first.artists[0].name
+      @tracks = @playlist.tracks
     end
 end
