@@ -1,10 +1,13 @@
 require_relative 'boot'
 
 require 'rails/all'
+require 'rspotify'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
+RSpotify::authenticate("60badc7756714015a695c90f3063a104", "2bcbca23fe844035b6a994e2fe56308e")
 
 module BEtheDJ
   class Application < Rails::Application
