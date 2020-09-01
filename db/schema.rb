@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_110032) do
+ActiveRecord::Schema.define(version: 2020_08_31_164723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 2020_08_31_110032) do
     t.index ["venue_id"], name: "index_events_on_venue_id"
   end
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
   create_table "requests", force: :cascade do |t|
     t.bigint "event_id", null: false
     t.bigint "track_id", null: false
@@ -87,6 +96,11 @@ ActiveRecord::Schema.define(version: 2020_08_31_110032) do
     t.string "first_name"
     t.string "last_name"
     t.string "dj_name"
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
+    t.string "spotify_photo_url"
+    t.text "spotify_hash"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

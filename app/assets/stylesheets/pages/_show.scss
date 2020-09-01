@@ -1,0 +1,66 @@
+.search-field {
+  margin: 20px;
+}
+/* Navbar links */
+.nav-link {
+  float: left;
+  display: block;
+color: #F2F2F2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.song-card-play {
+  margin: 4px;
+  background: white;
+  box-shadow: 0px 0px 4px 2px $blue;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  h4 {
+      font-size: smaller;
+    }
+  a {
+    color: white;
+  }
+  .card-counter {
+  position: absolute;
+  top: 2vh;
+  right: 9vw;
+  }
+   .card-request {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  }
+   .card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  }
+}
+
+.back-button {
+  background-color: $grey;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: black;
+  border: none;
+  &:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+}
+
+.request-button-black {
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: black;
+  border: none;
+  font-size: 24px;
+  }
+

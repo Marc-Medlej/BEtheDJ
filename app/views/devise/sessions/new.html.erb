@@ -5,8 +5,8 @@
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4 col-lg-offset-4 col-xl-offset-4">
       <!-- Insert form here -->
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -14,7 +14,7 @@
     <%= f.input :email,
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "email" },class: "formlogin" %>
+                input_html: { autocomplete: "email" }, class: "formlogin" %>
     <%= f.input :password,
                 required: false,
                 input_html: { autocomplete: "current-password" } %>

@@ -1,4 +1,5 @@
 <div class="container rounded">
+  <% if venue.club %>
   <%= link_to venue_path(venue) do %>
     <div class="img-background rounded">
       <%= image_tag venue.photo %>
@@ -8,4 +9,18 @@
       <p><i class="fas fa-map-marker-alt"></i> <%= venue.location %></p>
     </div>
     <% end %>
+  <% else %>
+    <%= link_to 'http://localhost:3000/auth/spotify' do %>
+    <div class="img-background rounded">
+      <%= image_tag venue.photo %>
+    </div>
+    <div class="link-darken">
+      <h6 class="pt-2"></i> <%= venue.name.upcase %></h6>
+      <p><i class="fas fa-map-marker-alt"></i> <%= venue.location %></p>
+    </div>
+    <% end %>
+    <% end %>
 </div>
+
+
+
