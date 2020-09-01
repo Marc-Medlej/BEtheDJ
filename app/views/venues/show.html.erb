@@ -1,15 +1,19 @@
+
 <%= render 'shared/navbar_events' %>
 <div class="container bg-white">
-  <div class="row space-man">
-    <!-- <div class="col-6">
-       <h1><%= @venue.name %></h1>
-    </div> -->
-    <div class="col-6">
-    <div class="btn add-new link-whiten mt-4">
-    <%= link_to "+", new_venue_event_path(@venue) %>
-  </div>
-  </div>
-  </div>
+
+  <% if @venue.club %>
+
+    <div class="row space-man">
+      <!-- <div class="col-6">
+        <h1><%= @venue.name %></h1>
+      </div> -->
+      <div class="col-6">
+        <div class="btn add-new link-whiten mt-4">
+          <%= link_to "+", new_venue_event_path(@venue) %>
+        </div>
+      </div>
+    </div>
 
 
     <div class="row">
@@ -26,14 +30,103 @@
                 <p><i class="fas fa-house-user"></i> <%= Event.find(event.id).venue.name %></p>
 
               <!-- <div class="flex-container"> -->
-               <!--  <div class="card-date"> -->
+              <!--  <div class="card-date"> -->
                   <p><i class="far fa-calendar-alt"></i> <%= event.date.strftime("%d %b") %></p>
-                 <!--  <p><%= event.date.strftime("%b") %></p> -->
-               <!--  </div> -->
+                <!--  <p><%= event.date.strftime("%b") %></p> -->
+              <!--  </div> -->
               <!-- </div> -->
               </div>
           </div>
         </div>
       <% end %>
     </div>
+
+    <% else %>
+    <p class="pb-2"> </p>
+      <div class="container song-card-play pt-3">
+        <div class="d-flex mb-3">
+          <%=image_tag('singer.jpg', height: 100, width: 100, crop: :scale  )%>
+          <div class="align-self-center m-3">
+            <h4><em>Artist</em></h4>
+            <p><em>Title</em></p>
+          </div>
+          <p class="card-request mr-2"><em>Currently Playing</em></p>
+          <div class="ml-auto align-self-center">
+              <div class="ml-auto align-self-center request-button-black">
+                  <i class="fas fa-play-circle"></i>
+              </div>
+          </div>
+        </div>
+    </div>
+
+
+    <div class="text-center">
+    <%= form_tag venue_path, class: "search-tracks",  method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "search-field justify-content-center",
+      placeholder: "  Search artist/track"
+    %>
+    <%= button_tag :submit, class: "create-button px-2" do %>
+      <i class="fas fa-search"></i>
+    <% end %>
+    <% end %>
+  </div>
+
+    <% @tracks.each do |track| %>
+      <div class="container song-card">
+        <div class="d-flex m-2">
+
+          <% if track.album.images %>
+
+            <%=image_tag(track.album.images.first["url"], height: 100, width: 100, crop: :scale  )%>
+
+            <% elsif track.artists.first.images %>
+
+              <%=image_tag(track.album.images.first["url"], height: 100, width: 100, crop: :scale  )%>
+
+            <% else %>
+
+              <%=image_tag('singer.jpg', height: 100, width: 100, crop: :scale  )%>
+
+          <% end %>
+
+
+          <div class="align-self-center m-3">
+            <h4 class="m-0"><%= track.name %> </h4>
+            <p class="m-0"><%= track.artists.first.name %></p>
+          </div>
+
+          <div type= "button" class="ml-auto align-self-center request-button" data-toggle="modal" data-target="#exampleModal<%= track.id %>">
+              <i class="fas fa-arrow-alt-circle-up"></i>
+          </div>
+          <div class="modal fade" id="exampleModal<%= track.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Song Selection</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="align-self-center m-3">
+                      <h4 class="m-0"><%= track.name %> </h4>
+                      <p class="m-0"><%= track.artists.first.name %></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <div type="button" class="back-button" data-dismiss="modal">Back</div>
+                  <div type="button" class="request-button" data-toggle="modal" data-target="confirmModal"><strong>ADD TO QUEUE</strong></div>
+                   <!--  link_to "ADD TO QUEUE", method: :create do  -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
+
+
