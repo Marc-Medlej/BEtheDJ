@@ -69,7 +69,7 @@ const refreshToken = "AQBdhukOxMJFopK1M7MLtPCI3pqymkR0G8krKKm9Ql1PSCaRY0xUttRO__
 const accessToken = "BQDkzIYluDkC2LIOwntpO7KT9mVJNQgM-v4C6_gYAaOEeScW-S1miIhkm6boHh-bvKvfPxUw9Eyab35BlGbTwJd5Z2vdkrT1IF25ZkUbGFQB2kSSJsiBO6U1XZsOygiKpE0tya-oPhWj2sLgokz3";
 
 const initAPIcall = () => {
-  document.querySelectorAll(".request-button").forEach((button) => {
+  document.querySelectorAll(".confirm-add").forEach((button) => {
     button.addEventListener("click", (event) => {
       const urlArray = event.currentTarget.querySelector(".track-id").innerHTML.split('/');
       const trackId = urlArray[urlArray.length - 1];
