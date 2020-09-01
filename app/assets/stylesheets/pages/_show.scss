@@ -59,8 +59,25 @@ color: #F2F2F2;
 .request-button-black {
   padding: 4px 8px;
   border-radius: 4px;
-  color: black;
+  color: white;
   border: none;
   font-size: 24px;
   }
 
+.make-purple {
+  background: rgba(159, 103, 209, 0.7);
+  color: white;
+}
+
+
+.request-button-confirm {
+  background-color: $purple;
+  padding: 4px 8px 0px 8px;
+  border-radius: 4px;
+  color: white;
+  border: none;
+  &:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+
+}
