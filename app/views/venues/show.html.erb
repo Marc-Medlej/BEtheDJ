@@ -2,7 +2,7 @@
 <%= render 'shared/navbar_events' %>
 <div class="container bg-white">
   <div class="text-center">
-    <%= form_tag event_path, class: "search-tracks",  method: :get do %>
+    <%= form_tag venue_path, class: "search-tracks",  method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "search-field justify-content-center",
