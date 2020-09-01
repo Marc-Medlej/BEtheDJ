@@ -67,9 +67,8 @@
           </div>
 
           <div class="ml-auto align-self-center request-button">
-            <%= link_to "ADD TO QUEUE", method: :create do %>
-              <i class="fas fa-arrow-alt-circle-up"></i>
-            <% end %>
+            <span class="track-id" style="display:none"><%= track.external_urls["spotify"] %></span>
+            <i class="fas fa-arrow-alt-circle-up"></i>
           </div>
         </div>
       </div>
