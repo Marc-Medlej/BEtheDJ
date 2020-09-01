@@ -142,7 +142,8 @@
                 </div>
                 <div class="modal-footer">
                   <div type="button" class="back-button" data-dismiss="modal">Back</div>
-                  <div type="button" class="request-button-confirm" data-toggle="modal" data-target="confirmModal"><h6>ADD TO QUEUE</h6></div>
+                  <div type="button" class="request-button-confirm confirm-add" data-toggle="modal" data-target="confirmModal"><h6>ADD TO QUEUE</h6></div>
+                  <span class="track-id" style="display:none"><%= track.external_urls["spotify"] %></span>
                    <!--  link_to "ADD TO QUEUE", method: :create do  -->
                 </div>
               </div>
@@ -153,5 +154,4 @@
     <% end %>
   <% end %>
 </div>
-
 
