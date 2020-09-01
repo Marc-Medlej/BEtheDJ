@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+  # skip_before_action :authenticate_user!, only: [ :index, :show ]
   def index
     # if params[:query].present?
     #   @venues = Venue.where("location @@ :query OR venue_name @@ :query", query: "%#{params[:query]}%")
