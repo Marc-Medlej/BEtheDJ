@@ -1,11 +1,6 @@
 
 
 
-// const clientId = '60badc7756714015a695c90f3063a104';
-// const clientSecret = '2bcbca23fe844035b6a994e2fe56308e';
-// const code = 'AQADrrme_pVaDGZcvrz3V16kqK2jfTTKSzjZJK0nOMewWe5761hRJLOPIOfzEqg0O5eKvtqAuV_76RfNPP_STEOeR5kfcI5C5eUQYg5VeFbzZdPFTZ93kVkzhM6EZsJuxjsmEMsmKQ0A7p18wAy-7jjk8GfUn72F0M61rk_qzhuGhoyaXsP5ssXo3rII2XTm-biYFhejMwhrwYATUFx5kZPREQ5ecDm_y6EesLVXKvzQkpp8a605jRwZVCDyS-5IFFEDB7v-uxExEQ';
-// const refreshToken = "AQBdhukOxMJFopK1M7MLtPCI3pqymkR0G8krKKm9Ql1PSCaRY0xUttRO___QBVKgRummvhqEvBPLtClnihkDqeyvRl3o68PNsCvVia0QSlcQvEDkHNcjfN74R93LHuKC6mk";
-// const accessToken = "BQDkzIYluDkC2LIOwntpO7KT9mVJNQgM-v4C6_gYAaOEeScW-S1miIhkm6boHh-bvKvfPxUw9Eyab35BlGbTwJd5Z2vdkrT1IF25ZkUbGFQB2kSSJsiBO6U1XZsOygiKpE0tya-oPhWj2sLgokz3";
 
 // const initAPIcall = () => {
 //   document.querySelectorAll(".confirm-add").forEach((button) => {
