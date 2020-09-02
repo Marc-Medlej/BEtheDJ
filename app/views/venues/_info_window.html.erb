@@ -10,7 +10,7 @@
     </div>
     <% end %>
   <% else %>
-    <%= link_to 'http://localhost:3000/auth/spotify' do %>
+    <%= link_to venue_path(venue) do %>
     <div class="img-background rounded">
       <%= image_tag venue.photo %>
     </div>
