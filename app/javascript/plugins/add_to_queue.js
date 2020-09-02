@@ -80,9 +80,31 @@ const initAPIcall = () => {
     
     }
 
+    const _currentlyPlaying = async (token) => {
+
+      const result = await fetch('https://api.spotify.com/v1/me/player/currently-playing?market=ES&additional_types=episode', {
+        method: 'GET',
+        headers: {
+          'Accept' : 'application/json',
+          'Content-Type' : 'application/json',
+          'Authorization' : 'Bearer ' + token}
+      });
+
+      const data = await result.json();
+      return { 
+        name: data.item.name,
+        artist: data.item.artists[0].name,
+        image: data.item.album.images[0].url
+      }
+    }
+    
+
     return {
       refreshToken() {
           return _refreshToken();
+      },
+      currentlyPlaying(token) {
+          return _currentlyPlaying(token);
       }
     }
 
@@ -102,6 +124,12 @@ const initAPIcall = () => {
             return {
                 token: document.querySelector('#hidden_token').value
             }
+        },
+
+        storePlayingName(name, artist, image) {
+          document.querySelector('#current-playing-title').innerHTML = name;
+          document.querySelector('#current-playing-artist').innerHTML = artist;
+          document.querySelector("#current-image").src = image;
         }
     }
 
@@ -110,13 +138,39 @@ const initAPIcall = () => {
   const APPController = (function(UICtrl, APICtrl) {
 
 
-    // get genres on page load
+    // update token at page load
     const updateToken = async () => {
         //get the token
         const token = await APICtrl.refreshToken();           
         //store the token onto the page
         UICtrl.storeToken(token);
+
+        const currentPlay = await APICtrl.currentlyPlaying(token);
+
+        UICtrl.storePlayingName(currentPlay.name, currentPlay.artist, currentPlay.image);
+    
+
+
+        // document.querySelector('#current-playing-title').value = value;
     }
+
+
+    // const updateTrack = async () => {
+
+    //   const accessToken = UICtrl.getStoredToken().token;
+
+    //   const currentName = await APICtrl.currentlyPlaying(accessToken);
+
+    //   UICtrl.storePlayingName(currentName);
+  
+
+
+    //   // document.querySelector('#current-playing-title').value = value;
+    // }
+
+    // document.querySelector(".make-purple").addEventListener("click", (event) => {
+    //   updateTrack();
+    // });
 
     document.querySelectorAll(".confirm-add").forEach((button) => {
       button.addEventListener("click", (event) => {
@@ -140,6 +194,7 @@ const initAPIcall = () => {
         init() {
             console.log('App is starting');
             updateToken();
+            // updateTrack();
         }
     }
 
