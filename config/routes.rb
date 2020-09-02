@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/auth/spotify/callback', to: 'users#spotify'
 
   resources :venues, only: [:index, :show] do
+    resources :venue_tracks_playeds, only: [ :create ]
     resources :events, only: [ :new, :create]
   end
   resources :events, only: [:show ] do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_31_164723) do
+ActiveRecord::Schema.define(version: 2020_09_02_104233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_164723) do
     t.string "genre"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
   end
 
   create_table "users", force: :cascade do |t|
@@ -105,6 +106,14 @@ ActiveRecord::Schema.define(version: 2020_08_31_164723) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "venue_tracks_playeds", force: :cascade do |t|
+    t.string "track_id"
+    t.bigint "venue_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["venue_id"], name: "index_venue_tracks_playeds_on_venue_id"
+  end
+
   create_table "venues", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -114,6 +123,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_164723) do
     t.float "longitude"
     t.boolean "club"
     t.string "playlist_id"
+    t.string "status"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -124,4 +134,5 @@ ActiveRecord::Schema.define(version: 2020_08_31_164723) do
   add_foreign_key "requests", "events"
   add_foreign_key "requests", "tracks"
   add_foreign_key "requests", "users"
+  add_foreign_key "venue_tracks_playeds", "venues"
 end
