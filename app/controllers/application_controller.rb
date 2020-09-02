@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
-  def default_url_options
-   { host: ENV["DOMAIN"] || "localhost:3000" }
-  end
+  # def default_url_options
+  #  { host: ENV["DOMAIN"] || "localhost:3000" }
+  # end
   # before_action :authenticate_user!, except: root_path
   #need a way to skip authenticating the home page
 
@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
   # end
 
   def default_url_options
-    { host: ENV["http://www.bethedj.club"] || "localhost:3000" }
+    { host: ENV["www.bethedj.club"] || "localhost:3000" }
   end
 end
