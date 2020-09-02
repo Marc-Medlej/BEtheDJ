@@ -12,7 +12,7 @@
 //     button.addEventListener("click", (event) => {
 //       const urlArray = event.currentTarget.querySelector(".track-id").innerHTML.split('/');
 //       const trackId = urlArray[urlArray.length - 1];
-        
+
 //       addToQueue(accessToken, trackId);
 //     })
 //   })
@@ -37,7 +37,7 @@
 //     const result = await fetch('https://accounts.spotify.com/api/token', {
 //         method: 'POST',
 //         headers: {
-//             'Content-Type' : 'application/x-www-form-urlencoded', 
+//             'Content-Type' : 'application/x-www-form-urlencoded',
 //             'Authorization' : 'Basic ' + btoa(clientId + ':' + clientSecret)
 //         },
 //         body: body
@@ -60,24 +60,24 @@ const initAPIcall = () => {
     const refreshToken = "AQBdhukOxMJFopK1M7MLtPCI3pqymkR0G8krKKm9Ql1PSCaRY0xUttRO___QBVKgRummvhqEvBPLtClnihkDqeyvRl3o68PNsCvVia0QSlcQvEDkHNcjfN74R93LHuKC6mk";
     const clientId = '60badc7756714015a695c90f3063a104';
     const clientSecret = '2bcbca23fe844035b6a994e2fe56308e';
-    
-    
+
+
     const _refreshToken = async () => {
-    
+
       const body = 'grant_type=refresh_token&' + 'refresh_token=' + refreshToken;
-    
+
       const result = await fetch('https://accounts.spotify.com/api/token', {
           method: 'POST',
           headers: {
-              'Content-Type' : 'application/x-www-form-urlencoded', 
+              'Content-Type' : 'application/x-www-form-urlencoded',
               'Authorization' : 'Basic ' + btoa(clientId + ':' + clientSecret)
           },
           body: body
       });
-    
+
       const data = await result.json();
       return data.access_token;
-    
+
     }
 
     const _currentlyPlaying = async (token) => {
@@ -141,7 +141,7 @@ const initAPIcall = () => {
     // update token at page load
     const updateToken = async () => {
         //get the token
-        const token = await APICtrl.refreshToken();           
+        const token = await APICtrl.refreshToken();
         //store the token onto the page
         UICtrl.storeToken(token);
 
@@ -177,7 +177,7 @@ const initAPIcall = () => {
         const accessToken = UICtrl.getStoredToken().token;
         const urlArray = event.currentTarget.querySelector(".track-id").innerHTML.split('/');
         const trackId = urlArray[urlArray.length - 1];
-          
+
         addToQueue(accessToken, trackId);
       })
     })
@@ -189,7 +189,7 @@ const initAPIcall = () => {
           headers: { 'Authorization' : 'Bearer ' + token}
       });
     }
-    
+
     return {
         init() {
             console.log('App is starting');
@@ -201,7 +201,7 @@ const initAPIcall = () => {
   })(UIController, APIController);
 
   APPController.init();
-  
+
 }
 
 export { initAPIcall };

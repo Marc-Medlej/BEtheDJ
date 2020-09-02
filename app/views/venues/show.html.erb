@@ -86,8 +86,13 @@
 
   <p class="text-right pt-1 pr-3"><span class="text-background p-1 m-1"><em> Press to add song to queue </em></span><span class="request-button"><i class="fas fa-arrow-alt-circle-up"></i></span></p>
 
+
     <% @tracks.each do |track| %>
+    <% if !VenueTracksPlayed.find_by track_id: track.id %>
+
+
       <div class="song-card">
+        <div id="myDIV">
         <div class="d-flex m-2">
 
           <% if track.album.images %>
@@ -110,7 +115,7 @@
             <p class="m-0"><%= track.artists.first.name %></p>
           </div>
 
-          <div type= "button" class="ml-auto align-self-center request-button" data-toggle="modal" data-target="#exampleModal<%= track.id %>">
+          <div type= "button" id="request-new" class="ml-auto align-self-center request-button" data-toggle="modal" data-target="#exampleModal<%= track.id %>">
               <i class="fas fa-arrow-alt-circle-up"></i>
           </div>
           <div class="modal fade mt-5" id="exampleModal<%= track.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -140,25 +145,57 @@
                   <div class="align-self-center m-3">
                     <h4 class="m-0"><%= track.name %> </h4>
                     <p class="m-0"><%= track.artists.first.name %></p>
+                    <p id="added-queue"> </p>
                   </div>
                 </div>
                 </div>
                 <div class="modal-footer">
                   <div type="button" class="back-button" data-dismiss="modal">Back</div>
-                  <div type="button" class="request-button-confirm confirm-add" data-toggle="modal" data-target="confirmModal"><h6>ADD TO QUEUE</h6>
+
+                  <%= link_to venue_venue_tracks_playeds_path(@venue, track_id: track.id), method: :create, data: { confirm: "Confirmed!" } do %>
+                  <div type="button" class="request-button-confirm confirm-add" onclick="" data-dismiss="modal"> <h6 class="pt-2">ADD TO QUEUE</h6>
                   <span class="track-id" style="display:none"><%= track.external_urls["spotify"] %></span>
                   </div>
-                   <!--  link_to "ADD TO QUEUE", method: :create do  -->
+                  <% end %>
+
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+      <% else %>
+      <div class="song-card make-grey">
+        <div id="myDIV">
+        <div class="d-flex m-2">
+
+          <% if track.album.images %>
+
+            <%=image_tag(track.album.images.first["url"], height: 100, width: 100, crop: :scale  )%>
+
+            <% elsif track.artists.first.images %>
+
+              <%=image_tag(track.album.images.first["url"], height: 100, width: 100, crop: :scale  )%>
+
+            <% else %>
+
+              <%=image_tag('singer.jpg', height: 100, width: 100, crop: :scale  )%>
+
+          <% end %>
+
+              <div class="align-self-center m-3">
+                <h4 class="m-0"><%= track.name %> </h4>
+                <p class="m-0"><%= track.artists.first.name %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
+  </div>
 </div>
-
 
 <% content_for :meta_title, "#{@venue.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @venue.location %>

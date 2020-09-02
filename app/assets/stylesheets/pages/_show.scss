@@ -72,12 +72,19 @@ color: #F2F2F2;
 
 .request-button-confirm {
   background-color: $purple;
-  padding: 4px 8px 0px 8px;
+  padding: 4px 8px 4px 8px;
+
   border-radius: 4px;
   color: white;
   border: none;
   &:hover {
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   }
+
+}
+
+.mystyle {
+
+  background-color: $grey;
 
 }
