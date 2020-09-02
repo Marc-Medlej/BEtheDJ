@@ -1,19 +1,7 @@
 
 <%= render 'shared/navbar_events' %>
 
-<div class="container bg-white">
-  <div class="text-center">
-    <%= form_tag venue_path, class: "search-tracks",  method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "search-field justify-content-center",
-      placeholder: "  Search artist/track"
-    %>
-    <%= button_tag :submit, class: "create-button px-2" do %>
-      <i class="fas fa-search"></i>
-    <% end %>
-    <% end %>
-  </div>
+
 
 <div class="bg-white px-3">
 
