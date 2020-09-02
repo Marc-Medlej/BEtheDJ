@@ -41,7 +41,11 @@ class VenuesController < ApplicationController
     end
 
     def show
-      @venue = Venue.find(params[:id])
+     @venue = Venue.find(params[:id])
+      #check if prams query exist
+      #
+
+
       @events = @venue.events
       # @playlist_code = @venue.playlist_id
       @playlist_code = '4TaOLNlPlYlcPb2VxBPlkR'
