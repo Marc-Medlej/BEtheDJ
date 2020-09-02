@@ -58,15 +58,10 @@
         <div class="d-flex mb-3 m-3">
           <img src="" alt="Currently Playing" id="current-image" width="100" height="100">
           <div class="align-self-center m-3">
-            <h4 id="current-playing-title"><em>Title</h4>
+            <h4 id="current-playing-title"><em>Title</em></h4>
             <p id="current-playing-artist"><em>Artist</em></p>
           </div>
-          <p class="card-request mr-2"><em>Currently Playing</em></p>
-          <div class="ml-auto align-self-center">
-              <div class="ml-auto align-self-center request-button-black">
-                  <i class="fas fa-play-circle"></i>
-              </div>
-          </div>
+          <p class="card-request mr-2"><em>Playing Now<span class="request-button-black"></em><i class="fas fa-play-circle"></i></span></p>
         </div>
     </div>
 
@@ -75,10 +70,10 @@
     <%= form_tag venue_path, class: "search-tracks",  method: :get do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "search-field justify-content-center",
+      class: "search-field-tracks justify-content-center",
       placeholder: "  Search artist/track"
     %>
-    <%= button_tag :submit, class: "create-button px-2" do %>
+    <%= button_tag :submit, class: "create-button-tracks" do %>
       <i class="fas fa-search"></i>
     <% end %>
     <% end %>
