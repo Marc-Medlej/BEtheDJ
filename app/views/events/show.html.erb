@@ -18,7 +18,7 @@
     <% unless @event.event_tracks.find_by(track: track).already_played %>
       <div class="song-card">
         <div class="d-flex m-2">
-          <%=image_tag(track.photo, height: 100, width: 100, crop: :scale  )%>
+          <%=cl_image_tag track.photo.key, height: 100, width: 100, crop: :scale %>
             <div class="align-self-center m-3">
               <h4 class="m-0"><%= track.name %> </h4>
               <p class="m-0"><%= track.artist %></p>
@@ -74,7 +74,7 @@
           <div class="song-card">
         <% end %>
             <div class="d-flex m-2">
-              <%=image_tag(track.photo, height: 100, width: 100, crop: :scale  )%>
+              <%=cl_image_tag track.photo.key, height: 100, width: 100, crop: :scale %>
               <div class="align-self-center m-3">
                 <h4 class="m-0"><%= track.name %> </h4>
                 <p class="m-0"><%= track.artist %></p>
@@ -111,7 +111,7 @@
       <% @played_tracks.each do |track| %>
           <div class="song-card make-grey">
             <div class="d-flex m-2">
-              <%=image_tag(track.photo, height: 100, width: 100, crop: :scale  )%>
+              <%=cl_image_tag track.photo.key, height: 100, width: 100, crop: :scale %>
               <div class="align-self-center m-3">
                 <h4 class="m-0"><%= track.name %> </h4>
                 <p class="m-0"><%= track.artist %></p>
@@ -130,7 +130,7 @@
           <div class="song-card">
         <% end %>
             <div class="d-flex m-2">
-              <%=image_tag(track.photo, height: 100, width: 100, crop: :scale  )%>
+              <%=cl_image_tag track.photo.key, height: 100, width: 100, crop: :scale %>
               <div class="align-self-center m-3">
                 <h4 class="m-0"><%= track.name %> </h4>
                 <p class="m-0"><%= track.artist %></p>
