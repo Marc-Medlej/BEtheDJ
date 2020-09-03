@@ -20,11 +20,10 @@
 
 
           <div class="event-nav-item make-black pt-3">
-            <%= link_to root_path do %>
+             <%= link_to venues_path(:query => @venue.location) do %>
               <i class="fas fa-chevron-left"></i>
             <% end %>
           </div>
-
 
          <div class="event-nav-item text-center pt-2">
       <h5 class="pt-2">EVENT LIST</h5>
