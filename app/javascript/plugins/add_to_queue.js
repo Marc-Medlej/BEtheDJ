@@ -86,13 +86,13 @@ const initAPIcall = () => {
       });
 
       const data = await result.json();
-      return { 
+      return {
         name: data.item.name,
         artist: data.item.artists[0].name,
         image: data.item.album.images[0].url
       }
     }
-    
+
 
     return {
       refreshToken() {
@@ -143,7 +143,7 @@ const initAPIcall = () => {
         const currentPlay = await APICtrl.currentlyPlaying(token);
 
         UICtrl.storePlayingName(currentPlay.name, currentPlay.artist, currentPlay.image);
-    
+
 
 
         // document.querySelector('#current-playing-title').value = value;
@@ -157,7 +157,7 @@ const initAPIcall = () => {
     //   const currentName = await APICtrl.currentlyPlaying(accessToken);
 
     //   UICtrl.storePlayingName(currentName);
-  
+
 
 
     //   // document.querySelector('#current-playing-title').value = value;
@@ -179,7 +179,7 @@ const initAPIcall = () => {
 
     const addToQueue = async (token, trackId) => {
 
-      const result = fetch('https://api.spotify.com/v1/me/player/queue?uri=spotify:track:' + trackId + '&device_id=8a20e875378baab24c6581000f5612f4ebcf4993', {
+      const result = fetch('https://api.spotify.com/v1/me/player/queue?uri=spotify:track:' + trackId + '&device_id=8110bf5a41e1983042e91e95e2fb4c0284dc9ee2', {
           method: 'POST',
           headers: { 'Authorization' : 'Bearer ' + token}
       });
