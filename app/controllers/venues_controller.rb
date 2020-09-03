@@ -41,22 +41,22 @@ class VenuesController < ApplicationController
     end
 
     def show
-     @venue = Venue.find(params[:id])
-      #check if prams query exist
-      #
+      if user_signed_in?
+        @venue = Venue.find(params[:id])
+        @events = @venue.events
+        # @playlist_code = @venue.playlist_id
+        @playlist_code = '4TaOLNlPlYlcPb2VxBPlkR'
+        @playlist = RSpotify::Playlist.find_by_id(@playlist_code)
+        # track_artist = @playlist.tracks.first.artists[0].name
 
 
-      @events = @venue.events
-      # @playlist_code = @venue.playlist_id
-      @playlist_code = '4TaOLNlPlYlcPb2VxBPlkR'
-      @playlist = RSpotify::Playlist.find_by_id(@playlist_code)
-      # track_artist = @playlist.tracks.first.artists[0].name
-
-
-      if params[:query].present?
-        @tracks = @playlist.tracks.select { |track| track.name.include?(params[:query].capitalize) || track.artists.first.name.include?(params[:query].capitalize) }
+        if params[:query].present?
+          @tracks = @playlist.tracks.select { |track| track.name.include?(params[:query].capitalize) || track.artists.first.name.include?(params[:query].capitalize) }
+        else
+           @tracks = @playlist.tracks
+        end
       else
-         @tracks = @playlist.tracks
+        redirect_to new_user_session_path
       end
     end
 end

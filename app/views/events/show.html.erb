@@ -46,10 +46,10 @@
     <%= form_tag event_path, class: "search-tracks",  method: :get do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "search-field justify-content-center",
+      class: "search-field-tracks justify-content-center",
       placeholder: "  Search artist/track"
     %>
-    <%= button_tag :submit, class: "create-button px-2" do %>
+    <%= button_tag :submit, class: "create-button-tracks" do %>
       <i class="fas fa-search"></i>
     <% end %>
     <% end %>
@@ -86,7 +86,7 @@
                 <% if Request.where(track_id: track.id).where(event_id: @event.id).where(user_id: current_user.id)[0] %>
 
 
-                  <i class="card-request mr-2">Requested</i>
+                  <i class="card-request">Requested</i>
 
                     <div class="ml-auto align-self-center request-button-trash">
                     <%= link_to request_path(Request.where(track_id: track.id).where(event_id: @event.id).where(user_id: current_user.id)[0].id), method: :delete do %>
