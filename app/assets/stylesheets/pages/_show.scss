@@ -92,3 +92,16 @@ color: #F2F2F2;
     margin: 20px 0;
     border-radius: 8px;
 }
+
+
+
+.event-nav {
+  display: grid;
+  grid-template-columns: 40px auto 40px;
+  padding: 12px;
+  font-size: 12px;
+}
+
+.event-nav-item {
+
+}

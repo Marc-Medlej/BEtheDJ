@@ -5,37 +5,38 @@
 
 <div class="bg-white px-3">
 
- <!--  <div class="d-flex">
-    <div class="make-black mx-4 mt-2">
-      <%= link_to root_path do %>
-        <i class="fas fa-chevron-left"></i>
-      <% end %>
-    </div>
-</div> -->
-
-
-  <% if @venue.club %>
-
-    <div class="row justify-content-end">
-      <!-- <div class="col-6">
-        <h1><%= @venue.name %></h1>
-      </div> -->
-      <!-- <div class="col-2"> -->
-
-        <div class="d-flex">
+<!-- <div class="d-flex">
     <div class="make-black mx-4 mt-2">
       <%= link_to root_path do %>
         <i class="fas fa-chevron-left"></i>
       <% end %>
     </div>
 </div>
+ -->
+
+  <% if @venue.club %>
+
+    <div class="event-nav">
 
 
-        <div class="col-2">
+          <div class="event-nav-item make-black pt-3">
+            <%= link_to root_path do %>
+              <i class="fas fa-chevron-left"></i>
+            <% end %>
+          </div>
+
+
+         <div class="event-nav-item text-center pt-2">
+      <h5 class="pt-2">EVENT LIST</h5>
+      </div>
+
+
+        <div class="event-nav-item d-flex justify-content-end">
         <div class="btn add-new link-whiten">
           <%= link_to "+", new_venue_event_path(@venue) %>
         </div>
       </div>
+
     </div>
 
 
@@ -65,6 +66,14 @@
     </div>
 
     <% else %>
+
+     <div class="d-flex">
+        <div class="make-black mx-4 mt-2">
+          <%= link_to root_path do %>
+            <i class="fas fa-chevron-left"></i>
+          <% end %>
+        </div>
+      </div>
 
     <span id="hidden_token" style="display:none"></span>
 
@@ -206,5 +215,5 @@
 
 <% content_for :meta_title, "#{@venue.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @venue.location %>
-<% content_for :meta_image, cl_image_path(@venue.photo.key) %> 
+<% content_for :meta_image, cl_image_path(@venue.photo.key) %>
 
