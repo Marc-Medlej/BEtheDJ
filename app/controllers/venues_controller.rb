@@ -25,7 +25,6 @@ class VenuesController < ApplicationController
       # # @venues = Venue.where("location @@ :query", query: "%#{params[:query]}%")
       # end
 
-
       @venues = Venue.near("#{params[:query]}")
 
       @geo_venues = @venues.geocoded
@@ -41,6 +40,8 @@ class VenuesController < ApplicationController
     end
 
     def show
+      # session[:search_results] = request.url
+
       if user_signed_in?
         @venue = Venue.find(params[:id])
         @events = @venue.events
