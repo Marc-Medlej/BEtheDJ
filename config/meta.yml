@@ -1,5 +1,5 @@
 meta_product_name: "BeTheDj"
 meta_title: "BeTheDj - You Request We Play"
 meta_description: "Request your songs to ensure your favourite songs gets played without having to talk to the DJ!"
-meta_image: "Landing.jpeg" # should exist in `app/assets/images/`
+meta_image: "Landing.jpg" # should exist in `app/assets/images/`
 twitter_account: "https://twitter.com/BeTheDj1"   # required for Twitter Cards
