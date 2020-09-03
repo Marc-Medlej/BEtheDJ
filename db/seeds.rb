@@ -52,7 +52,7 @@ venues.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 venues.save!
 
 
-file = URI.open('https://static.designmynight.com/uploads/2019/09/LCCOldSt-HighRes-7K8B7011-HDRx-optimised.jpg')
+file = URI.open('https://theatreprojects.com/files/projects/roundhouse-01.jpg')
 venues = Venue.new(
     name: "London Cocktail Club - Shoreditch",
     location: "29 Sclater St, Shoreditch, London",
@@ -702,9 +702,10 @@ events.save!
 tracks = Track.all
 
 tracks.each do |track|
-  event_tracks = EventTrack.new(
+  event_track = EventTrack.new(
   track_id: track.id,
   event_id: Event.first.id)
+  event_track.save!
 end
 
 # event_tracks = EventTrack.new(
