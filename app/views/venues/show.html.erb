@@ -45,7 +45,7 @@
           <div class="card-product flex-container space-between m-3 p-3">
             <%= link_to "", event_path(event), class: "card-link"%>
 
-              <%=image_tag(event.photo, height: 150, width: 80, crop: :scale  )%>
+              <%= cl_image_tag event.photo.key, height: 150, width: 80, crop: :scale %>
 
               <div class="card-product-infos mt-3">
                 <h4><%= event.name %></h4>
@@ -206,5 +206,5 @@
 
 <% content_for :meta_title, "#{@venue.name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @venue.location %>
-<% content_for :meta_image, cl_image_path(@venue.photo.key) %>
+<% content_for :meta_image, cl_image_path(@venue.photo.key) %> 
 
