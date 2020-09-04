@@ -222,10 +222,10 @@ venues.save!
 
 
 users = User.create(
-  first_name: "David",
-  last_name: "Guetta",
-  email: "david@email.com",
-  dj_name: "David Guetta",
+  first_name: "Marc",
+  last_name: "Medlej",
+  email: "marc@email.com",
+  dj_name: "meDleJ",
   password: "bethedj"
   )
 
@@ -563,7 +563,7 @@ tracks.save!
 
 file = URI.open('https://i0.wp.com/weownthenitenyc.com/wp-content/uploads/2019/02/We-Own-The-Nite-NYC_Untold-Music-Festival-2019_Line-up_Romania_UNTOLD_Festival_2018_Main-Stage.jpeg.jpeg?fit=960%2C639&ssl=1')
 events = Event.new(
-  date: "12.09.2020",
+  date: "04.09.2020",
   venue_id: Venue.first.id,
   user_id: User.first.id,
   name: "Untold"
