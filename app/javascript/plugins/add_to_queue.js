@@ -179,7 +179,7 @@ const initAPIcall = () => {
 
     const addToQueue = async (token, trackId) => {
 
-      const result = fetch('https://api.spotify.com/v1/me/player/queue?uri=spotify:track:' + trackId + '&device_id=8110bf5a41e1983042e91e95e2fb4c0284dc9ee2', {
+      const result = fetch('https://api.spotify.com/v1/me/player/queue?uri=spotify:track:' + trackId + '&device_id=8a20e875378baab24c6581000f5612f4ebcf4993', {
           method: 'POST',
           headers: { 'Authorization' : 'Bearer ' + token}
       });
